@@ -2,13 +2,16 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/hero-bride.jpg')" }}>
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
       
+      {/* תמונת רקע מלאה */}
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/hero-bride.jpg')" }}></div>
+
       {/* שכבת כהות מעל התמונה */}
       <div className="absolute inset-0 bg-black/30"></div>
-      
-      {/* התוכן שיושב מעל הכל */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4">
+
+      {/* תוכן מעל הרקע */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
         <div className="mb-8 mx-auto w-56 md:w-72">
           <img
             src="/herobride.webp"
@@ -30,7 +33,7 @@ const Hero = () => {
         </Button>
       </div>
 
-      {/* Decorative skew at the bottom */}
+      {/* קישוט תחתון */}
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform -skew-y-2"></div>
     </section>
   );
