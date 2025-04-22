@@ -16,7 +16,7 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto animate-fade-in opacity-0" style={{ animationDelay: '0.3s' }}>
           <div className="mb-8 mx-auto w-56 md:w-72">
             <img
-              src="/lovable-uploads/54a5aac8-0195-4889-aa6f-65f63e267b8f.png"
+              src="/herobride.webp"
               alt="M.O.E bride studio"
               className="w-full h-auto"
             />
