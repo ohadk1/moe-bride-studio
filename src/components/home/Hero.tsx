@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('herobride.webp')" }}
+      style={{ backgroundImage: "url('herobride1.webp')" }}
     >
       {/* שכבת כהות על התמונה */}
       <div className="absolute inset-0 bg-black/30"></div>
