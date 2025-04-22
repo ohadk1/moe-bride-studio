@@ -9,6 +9,10 @@ import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import AccessibilityWidget from "./components/ui/AccessibilityWidget";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Accessibility from "./pages/Accessibility";
 
 const queryClient = new QueryClient();
 
@@ -18,11 +22,15 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AccessibilityWidget />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/accessibility" element={<Accessibility />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

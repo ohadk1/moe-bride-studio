@@ -13,7 +13,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-brand-cream/50 pt-16 pb-8">
+    <footer className="bg-brand-cream/50 pt-16 pb-8" role="contentinfo" aria-label="כותרת תחתונה">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="flex flex-col items-start">
@@ -25,7 +25,7 @@ const Footer = () => {
           
           <div className="flex flex-col">
             <h3 className="text-lg font-semibold mb-4 border-b border-brand-gold/30 pb-2">קישורים מהירים</h3>
-            <nav>
+            <nav aria-label="קישורים מהירים">
               <ul className="space-y-2">
                 <li>
                   <Link to="/" className="text-foreground/80 hover:text-brand-turquoise transition-colors">
@@ -75,7 +75,6 @@ const Footer = () => {
                 <span>א'-ה': 10:00-19:00, ו': 10:00-14:00</span>
               </div>
             </div>
-            
             <div className="flex gap-3 mt-4">
               <Button asChild className="bg-brand-turquoise hover:bg-brand-turquoise/90">
                 <a href="tel:+9721234567" className="flex items-center gap-2">
@@ -98,19 +97,28 @@ const Footer = () => {
           <p className="text-sm text-foreground/70 mb-4 md:mb-0">
             © {new Date().getFullYear()} M.O.E bride studio. כל הזכויות שמורות.
           </p>
-          <div className="flex gap-4 text-sm text-foreground/70">
-            <Link to="/privacy" className="hover:text-brand-turquoise transition-colors">מדיניות פרטיות</Link>
-            <span>|</span>
-            <Link to="/terms" className="hover:text-brand-turquoise transition-colors">תנאי שימוש</Link>
-            <span>|</span>
-            <Link to="/accessibility" className="hover:text-brand-turquoise transition-colors">נגישות</Link>
+          <div className="flex flex-col gap-1 md:flex-row md:gap-4 text-sm text-foreground/70 items-center">
+            <Link to="/privacy" className="hover:text-brand-turquoise transition-colors underline">מדיניות פרטיות</Link>
+            <span className="hidden md:inline">|</span>
+            <Link to="/terms" className="hover:text-brand-turquoise transition-colors underline">תנאי שימוש</Link>
+            <span className="hidden md:inline">|</span>
+            <Link to="/accessibility" className="hover:text-brand-turquoise transition-colors underline">נגישות</Link>
           </div>
         </div>
+        <div className="mt-4 text-xs text-foreground/60" aria-label="מידע נגישות משפטי">
+          <span>
+            נגישות: האתר תוכנן לעמוד בתקן WCAG 2.1 AA, כולל תמיכה בקורא מסך, ניווט באמצעות מקלדת, אפשרות הגדלת טקסט, שינוי ניגודיות, הפחתת הנפשה, ותפריט נגישות.
+            לשאלות או בקשות נגישות נוספות, ניתן לפנות למייל info@moebride.com.
+          </span>
+          <br />
+          <span>
+            במדיניות הפרטיות ותנאי השימוש — האתר עושה שימוש ב-cookies לאנליטיקה ושיפור חוויית המשתמש. מידע אישי מהמשתמש נשמר באופן מאובטח ואינו מועבר לגורמים שלישיים, פרט למטרות התחייבות ושיפור השירות.
+          </span>
+        </div>
       </div>
-      
       <button 
         onClick={scrollToTop}
-        className="fixed bottom-6 left-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110"
+        className="fixed bottom-6 left-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 focus:outline focus:outline-brand-turquoise"
         aria-label="חזרה למעלה"
       >
         <ArrowUp size={20} />
