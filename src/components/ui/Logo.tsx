@@ -10,7 +10,7 @@ const Logo = ({ small = false }: LogoProps) => {
     <Link to="/" className="flex items-center">
       <div className={`transition-all duration-300 ${small ? 'w-32' : 'w-48'}`}>
         <img
-          src="/לבן ללא רקע.png"
+          src="/לבן ללא רקע.webp"
           alt="M.O.E bride studio"
           className="w-full h-auto"
         />
