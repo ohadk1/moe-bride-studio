@@ -1,20 +1,13 @@
+
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden pt-16">
-      {/* Background image */}
-      <div className="absolute inset-0 -z-10">
-        <img
-          src="/images/hero-bride.jpg"
-          alt="רקע כלה"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30"></div> {/* שכבת כהות קלה */}
-      </div>
-
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden pt-16 hero-section-bg">
+      {/* The hero-section-bg class from index.css will handle the background image */}
+      
       {/* Content on top */}
-      <div className="relative z-10 container mx-auto px-4 py-12">
+      <div className="relative z-10 container mx-auto px-4 py-12 hero-section-content">
         <div className="mb-8 mx-auto w-56 md:w-72">
           <img
             src="/herobride.webp"
@@ -35,11 +28,9 @@ const Hero = () => {
           לתיאום מדידות
         </Button>
       </div>
-
-      {/* Decorative skew at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform -skew-y-2"></div>
     </section>
   );
 };
 
 export default Hero;
+
