@@ -3,29 +3,34 @@ import { Button } from "@/components/ui/button";
 const Hero = () => {
   return (
     <section
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('herobride.webp')" }}
+      className="relative h-screen bg-[url('/herobride.webp')] bg-cover bg-center bg-fixed flex flex-col justify-between"
+      role="region"
+      aria-label="Hero section"
     >
-      {/* שכבת כהות על התמונה */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Logo at the top center */}
+      <div className="pt-8 flex justify-center z-10">
+        <img
+          src="/logo-white.webp"
+          alt="M.O.E bride studio"
+          className="w-48 md:w-64 h-auto"
+        />
+      </div>
 
-      {/* תוכן האתר */}
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+      {/* Content lower in the viewport */}
+      <div className="container mx-auto px-4 pb-24 text-center z-10">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-md">
           יצירת שמלת החלומות שלך
         </h1>
-
-        <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-md">
+        <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow">
           בהתאמה אישית לגופך ולסגנונך האישי – שירות מקצועי, מהיר, עם בדים באיכות הגבוהה ביותר.
         </p>
-
         <Button className="bg-brand-gold hover:bg-brand-gold/90 text-white text-lg py-6 px-8">
           לתיאום מדידות
         </Button>
       </div>
 
-      {/* קישוט לבן תחתון */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform -skew-y-2"></div>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-black/40 z-0" aria-hidden="true"></div>
     </section>
   );
 };
