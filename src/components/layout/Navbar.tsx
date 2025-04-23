@@ -1,143 +1,54 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
-import Logo from '../ui/Logo';
+import { Button } from '@/components/ui/button';
+import { Phone } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { pathname } = useLocation();
-
-  const isHome = pathname === "/";
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
+    if (!isHome) return;
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
-  const showScrolledStyle = !isHome || isScrolled;
+  const bgClass = isHome
+    ? isScrolled
+      ? 'bg-white shadow-md'
+      : 'bg-transparent'
+    : 'bg-white shadow-md';
+
+  const textClass = isHome
+    ? isScrolled
+      ? 'text-foreground'
+      : 'text-white'
+    : 'text-foreground';
+
+  const logoSrc = isHome && !isScrolled ? '/logo-light.webp' : '/logo-dark.webp';
 
   return (
-    <header 
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-        showScrolledStyle ? 'bg-white/95 shadow-md py-2' : 'bg-transparent py-4'
-      }`}
-      role="banner"
-    >
-      <a 
-        href="#main-content" 
-        className="sr-only focus:not-sr-only absolute right-4 top-2 z-50 bg-brand-gold text-white px-2 py-1 rounded"
-        tabIndex={0}
-      >
-        דלג לתוכן ראשי
-      </a>
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center" tabIndex={0} aria-label="לעמוד הבית">
-          <Logo isScrolled={isScrolled} />
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${bgClass}`}>
+      <div className="container mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+        <Link to="/" className="flex items-center">
+          <img src={logoSrc} alt="M.O.E bride studio" className="h-10 md:h-12" />
         </Link>
-
-        <nav className="hidden md:flex items-center space-x-8" aria-label="ניווט ראשי">
-          <ul className="flex items-center space-x-6 ml-6">
-            <li>
-              <Link 
-                to="/" 
-                className="text-foreground hover:text-brand-turquoise font-medium transition-colors focus:outline focus:outline-brand-gold focus:outline-2 rounded px-2"
-                tabIndex={0}
-              >
-                בית
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="text-foreground hover:text-brand-turquoise font-medium transition-colors focus:outline focus:outline-brand-gold focus:outline-2 rounded px-2" tabIndex={0}>
-                שירותים
-              </Link>
-            </li>
-            <li>
-              <Link to="/gallery" className="text-foreground hover:text-brand-turquoise font-medium transition-colors focus:outline focus:outline-brand-gold focus:outline-2 rounded px-2" tabIndex={0}>
-                גלריה
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="text-foreground hover:text-brand-turquoise font-medium transition-colors focus:outline focus:outline-brand-gold focus:outline-2 rounded px-2" tabIndex={0}>
-                צור קשר
-              </Link>
-            </li>
-          </ul>
-          <Button asChild className="bg-brand-turquoise hover:bg-brand-turquoise/90 flex items-center gap-2 text-white focus:outline focus:outline-brand-gold focus:outline-2" aria-label="התקשר עכשיו">
-            <a href="tel:+9721234567" tabIndex={0}>
-              <Phone size={16} />
-              <span>התקשר עכשיו</span>
-            </a>
-          </Button>
+        <nav className={`hidden md:flex space-x-6 ${textClass}`}>
+          <Link to="/" className="hover:text-brand-turquoise transition">בית</Link>
+          <Link to="/services" className="hover:text-brand-turquoise transition">שירותים</Link>
+          <Link to="/gallery" className="hover:text-brand-turquoise transition">גלריה</Link>
+          <Link to="/contact" className="hover:text-brand-turquoise transition">צור קשר</Link>
         </nav>
-
-        <button 
-          className="md:hidden text-foreground p-2 focus:outline focus:outline-brand-gold focus:outline-2 rounded"
-          aria-label="פתח תפריט ניווט"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="mobile-nav-menu"
-        >
-          <div className="w-6 flex flex-col gap-1">
-            <span className={`block h-0.5 bg-foreground transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-            <span className={`block h-0.5 bg-foreground transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block h-0.5 bg-foreground transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-          </div>
-        </button>
-      </div>
-
-      <div 
-        id="mobile-nav-menu"
-        className={`md:hidden absolute top-full right-0 left-0 bg-white shadow-md transition-all duration-300 overflow-hidden ${
-          mobileMenuOpen ? 'max-h-96' : 'max-h-0'
-        }`}
-        aria-label="תפריט נייד"
-        tabIndex={-1}
-      >
-        <div className="container mx-auto px-4 py-4">
-          <ul className="space-y-4">
-            <li>
-              <Link to="/" className="block py-2 text-foreground hover:text-brand-turquoise font-medium focus:outline focus:outline-brand-gold focus:outline-2 rounded px-2"
-                tabIndex={0}
-                onClick={() => setMobileMenuOpen(false)}>
-                בית
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" className="block py-2 text-foreground hover:text-brand-turquoise font-medium focus:outline focus:outline-brand-gold focus:outline-2 rounded px-2"
-                tabIndex={0}
-                onClick={() => setMobileMenuOpen(false)}>
-                שירותים
-              </Link>
-            </li>
-            <li>
-              <Link to="/gallery" className="block py-2 text-foreground hover:text-brand-turquoise font-medium focus:outline focus:outline-brand-gold focus:outline-2 rounded px-2"
-                tabIndex={0}
-                onClick={() => setMobileMenuOpen(false)}>
-                גלריה
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="block py-2 text-foreground hover:text-brand-turquoise font-medium focus:outline focus:outline-brand-gold focus:outline-2 rounded px-2"
-                tabIndex={0}
-                onClick={() => setMobileMenuOpen(false)}>
-                צור קשר
-              </Link>
-            </li>
-            <li>
-              <Button asChild className="w-full bg-brand-turquoise hover:bg-brand-turquoise/90 flex items-center justify-center gap-2 focus:outline focus:outline-brand-gold focus:outline-2" aria-label="התקשר עכשיו">
-                <a href="tel:+9721234567" tabIndex={0}>
-                  <Phone size={16} />
-                  <span>התקשר עכשיו</span>
-                </a>
-              </Button>
-            </li>
-          </ul>
-        </div>
+        <Button asChild className="bg-brand-turquoise text-white hidden md:flex">
+          <a href="tel:+9721234567" className="flex items-center gap-2">
+            <Phone size={16} />
+            התקשר עכשיו
+          </a>
+        </Button>
       </div>
     </header>
   );
