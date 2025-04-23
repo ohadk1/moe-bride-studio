@@ -1,4 +1,5 @@
-import Image from "next/image"
+
+import React from "react"
 
 type LogoProps = {
   small?: boolean
@@ -6,16 +7,15 @@ type LogoProps = {
 
 const Logo = ({ small }: LogoProps) => {
   return (
-    <Image
+    <img
       src={small ? "/logo-dark.webp" : "/logo-light.webp"}
       alt="לוגו העסק"
       width={160}
       height={60}
       className="transition-all duration-300"
-      priority
+      style={{ objectFit: "contain" }}
     />
   )
 }
 
 export default Logo
-
