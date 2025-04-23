@@ -10,7 +10,7 @@ const Hero = () => {
       {/* Logo at the top center */}
       <div className="pt-8 flex justify-center z-10">
         <img
-          src="/logo-white.webp"
+          src="/logo-light.webp"
           alt="M.O.E bride studio"
           className="w-48 md:w-64 h-auto"
         />
