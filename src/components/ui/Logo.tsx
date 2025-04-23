@@ -1,21 +1,26 @@
+import React from "react";
+import { useLocation } from "react-router-dom";
 
-import React from "react"
-
-type LogoProps = {
-  small?: boolean
+interface LogoProps {
+  small?: boolean;
+  isScrolled?: boolean;
 }
 
-const Logo = ({ small }: LogoProps) => {
+const Logo: React.FC<LogoProps> = ({ isScrolled }) => {
+  const { pathname } = useLocation();
+
+  const isHome = pathname === "/";
+  const showLightLogo = isHome && !isScrolled;
+
+  const logoSrc = showLightLogo ? "/logo-light.webp" : "/logo-dark.webp";
+
   return (
     <img
-      src={small ? "/logo-dark.webp" : "/logo-light.webp"}
-      alt="לוגו העסק"
-      width={160}
-      height={60}
-      className="transition-all duration-300"
-      style={{ objectFit: "contain" }}
+      src={logoSrc}
+      alt="M.O.E bride studio"
+      className="h-10 w-auto md:h-12"
     />
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;
