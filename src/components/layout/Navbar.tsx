@@ -6,47 +6,78 @@ import { Phone } from 'lucide-react';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
 
   useEffect(() => {
-    if (!isHome) return;
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHome]);
+  }, []);
 
-  const bgClass = isHome
-    ? isScrolled
-      ? 'bg-white shadow-md'
-      : 'bg-transparent'
-    : 'bg-white shadow-md';
-
-  const textClass = isHome
-    ? isScrolled
-      ? 'text-foreground'
-      : 'text-white'
-    : 'text-foreground';
-
-  const logoSrc = isHome && !isScrolled ? '/logo-light.webp' : '/logo-dark.webp';
+  const isHome = location.pathname === '/';
+  const showScrolledStyle = isScrolled || !isHome;
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${bgClass}`}>
-      <div className="container mx-auto flex items-center justify-between px-4 py-3 md:py-4">
-        <Link to="/" className="flex items-center">
-          <img src={logoSrc} alt="M.O.E bride studio" className="h-10 md:h-12" />
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        showScrolledStyle ? 'bg-white shadow-md' : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Logo */}
+        <Link to="/" className="flex-shrink-0">
+          <img
+            src={showScrolledStyle ? '/logo-dark.webp' : '/logo-light.webp'}
+            alt="M.O.E bride studio"
+            className="h-10 md:h-12 transition-all"
+          />
         </Link>
-        <nav className={`hidden md:flex space-x-6 ${textClass}`}>
-          <Link to="/" className="hover:text-brand-turquoise transition">בית</Link>
-          <Link to="/services" className="hover:text-brand-turquoise transition">שירותים</Link>
-          <Link to="/gallery" className="hover:text-brand-turquoise transition">גלריה</Link>
-          <Link to="/contact" className="hover:text-brand-turquoise transition">צור קשר</Link>
+
+        {/* Navigation */}
+        <nav className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
+          <Link
+            to="/"
+            className={`transition-colors font-medium ${
+              showScrolledStyle ? 'text-foreground' : 'text-white'
+            }`}
+          >
+            בית
+          </Link>
+          <Link
+            to="/services"
+            className={`transition-colors font-medium ${
+              showScrolledStyle ? 'text-foreground' : 'text-white'
+            }`}
+          >
+            שירותים
+          </Link>
+          <Link
+            to="/gallery"
+            className={`transition-colors font-medium ${
+              showScrolledStyle ? 'text-foreground' : 'text-white'
+            }`}
+          >
+            גלריה
+          </Link>
+          <Link
+            to="/contact"
+            className={`transition-colors font-medium ${
+              showScrolledStyle ? 'text-foreground' : 'text-white'
+            }`}
+          >
+            צור קשר
+          </Link>
         </nav>
-        <Button asChild className="bg-brand-turquoise text-white hidden md:flex">
+
+        {/* Call to Action */}
+        <Button
+          asChild
+          className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white text-sm md:text-base px-5 py-2 ml-4"
+        >
           <a href="tel:+9721234567" className="flex items-center gap-2">
             <Phone size={16} />
-            התקשר עכשיו
+            <span>התקשר עכשיו</span>
           </a>
         </Button>
       </div>
