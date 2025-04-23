@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="relative z-10 text-center mb-16 px-4 max-w-2xl">
         {/* לוגו מעל */}
         <img 
-          src="/logo-white.webp" 
+          src="/logo-light.webp" 
           alt="M.O.E bride studio" 
           className="mx-auto mb-6 w-40 md:w-52 lg:w-60" 
         />
