@@ -15,31 +15,94 @@ const Navbar = () => {
     };
     window.addEventListener('scroll', handleScroll);
     
-    // Add script to handle badge visibility
+    // Improved badge hiding functionality
     const hideBadgeFromUrl = new URLSearchParams(window.location.search).get('forceHideBadge') === 'true';
-    if (hideBadgeFromUrl) {
+    const shouldHideBadge = hideBadgeFromUrl || localStorage.getItem('hideLovableBadge') === 'true';
+    
+    if (shouldHideBadge) {
+      // Store setting in localStorage to persist across page loads
+      localStorage.setItem('hideLovableBadge', 'true');
+      
+      // Add style to hide badge immediately
       const style = document.createElement('style');
+      style.id = 'badge-hider-style';
       style.innerHTML = `
-        .badge-lovable, .lovable-badge {
+        .badge-lovable, .lovable-badge, 
+        [class*="badge-lovable"], [class*="lovable-badge"],
+        div[class*="badge-lovable"], div[class*="lovable-badge"] {
           display: none !important;
           visibility: hidden !important;
           opacity: 0 !important;
+          width: 0 !important;
+          height: 0 !important;
+          position: absolute !important;
+          pointer-events: none !important;
+          z-index: -9999 !important;
+          overflow: hidden !important;
+          margin: 0 !important;
+          padding: 0 !important;
         }
       `;
       document.head.appendChild(style);
       
-      // Additional check for dynamically added badges
-      const observer = new MutationObserver((mutations) => {
-        const badgeElements = document.querySelectorAll('.badge-lovable, .lovable-badge');
-        badgeElements.forEach(element => {
-          (element as HTMLElement).style.display = 'none';
+      // More aggressive approach - remove badges as they appear
+      const removeExistingBadges = () => {
+        const badgeSelectors = [
+          '.badge-lovable', 
+          '.lovable-badge', 
+          '[class*="badge-lovable"]', 
+          '[class*="lovable-badge"]',
+          'div[class*="badge-lovable"]', 
+          'div[class*="lovable-badge"]'
+        ];
+        
+        badgeSelectors.forEach(selector => {
+          const elements = document.querySelectorAll(selector);
+          elements.forEach(element => {
+            if (element instanceof HTMLElement) {
+              element.style.display = 'none';
+              element.style.visibility = 'hidden';
+              element.style.opacity = '0';
+              element.style.width = '0';
+              element.style.height = '0';
+              // Try to remove it completely if possible
+              if (element.parentNode) {
+                try {
+                  element.parentNode.removeChild(element);
+                } catch (e) {
+                  console.log('Could not remove badge element');
+                }
+              }
+            }
+          });
         });
+      };
+      
+      // Run immediately and then observe
+      removeExistingBadges();
+      
+      // Set up an observer to catch any dynamically added badges
+      const observer = new MutationObserver((mutations) => {
+        removeExistingBadges();
       });
       
+      // Observe the entire document for any changes
       observer.observe(document.body, { 
         childList: true, 
-        subtree: true 
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class', 'style']
       });
+      
+      // Run the badge removal periodically just to be safe
+      const intervalId = setInterval(removeExistingBadges, 1000);
+      
+      // Clean up function
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        observer.disconnect();
+        clearInterval(intervalId);
+      };
     }
     
     return () => {

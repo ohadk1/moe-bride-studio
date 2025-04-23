@@ -17,6 +17,14 @@
     <meta name="twitter:image" content="/lovable-uploads/54a5aac8-0195-4889-aa6f-65f63e267b8f.png" />
     
     <link rel="icon" type="image/png" href="/lovable-uploads/54a5aac8-0195-4889-aa6f-65f63e267b8f.png" />
+    
+    <script>
+      // Early badge hiding script
+      if (window.location.search.includes('forceHideBadge=true') || localStorage.getItem('hideLovableBadge') === 'true') {
+        localStorage.setItem('hideLovableBadge', 'true');
+        document.write('<style>.badge-lovable, .lovable-badge, [class*="badge-lovable"], [class*="lovable-badge"] { display: none !important; visibility: hidden !important; opacity: 0 !important; }</style>');
+      }
+    </script>
   </head>
 
   <body>
