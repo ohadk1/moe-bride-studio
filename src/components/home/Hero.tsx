@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/30 -z-10"></div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-20 text-center relative z-10">
+      <div className="container mx-auto px-4 py-20 text-center">
         <div className="max-w-3xl mx-auto animate-fade-in opacity-0" style={{ animationDelay: '0.3s' }}>
           <div className="mb-6 mx-auto w-48 md:w-80">
             <img
@@ -35,8 +35,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative gradient transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-brand-cream z-0 pointer-events-none"></div>
+      {/* Decorative diagonal line */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform -skew-y-2"></div>
     </section>
   );
 };
