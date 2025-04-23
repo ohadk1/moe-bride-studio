@@ -1,22 +1,21 @@
+import Image from "next/image"
 
-import { Link } from 'react-router-dom';
-
-interface LogoProps {
-  small?: boolean;
+type LogoProps = {
+  small?: boolean
 }
 
-const Logo = ({ small = false }: LogoProps) => {
+const Logo = ({ small }: LogoProps) => {
   return (
-    <Link to="/" className="flex items-center">
-      <div className={`transition-all duration-300 ${small ? 'w-32' : 'w-48'}`}>
-        <img
-          src="/logo.webp"
-          alt="M.O.E bride studio"
-          className="w-full h-auto"
-        />
-      </div>
-    </Link>
-  );
-};
+    <Image
+      src={small ? "/logo-dark.webp" : "/logo-light.webp"}
+      alt="לוגו העסק"
+      width={160}
+      height={60}
+      className="transition-all duration-300"
+      priority
+    />
+  )
+}
 
-export default Logo;
+export default Logo
+
