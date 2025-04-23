@@ -14,7 +14,7 @@ const Hero = () => {
         <img 
           src="/logo-light.webp" 
           alt="M.O.E bride studio" 
-          className="mx-auto mb-6 w-40 md:w-52 lg:w-60" 
+          className="mx-auto mb-8 w-56 md:w-72 lg:w-80" 
         />
 
         {/* כותרת */}
