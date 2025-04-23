@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -5,10 +6,10 @@ const Hero = () => {
     <section className="relative min-h-screen md:min-h-[120vh] flex items-center justify-center pt-16 overflow-hidden">
       {/* Background */}
       <div 
-        className="absolute inset-0 bg-[url('/herobride.webp')] bg-no-repeat bg-center bg-[length:auto_120%] md:bg-cover md:bg-fixed"
+        className="absolute inset-0 bg-[url('/herobride.webp')] bg-no-repeat bg-center bg-[length:auto_120%] md:bg-cover"
         style={{ backgroundAttachment: 'scroll' }}
       ></div>
-      <div className="absolute inset-0 bg-black/30 -z-10"></div>
+      <div className="absolute inset-0 bg-black/30 z-0"></div>
 
       {/* Content */}
       <div className="container mx-auto px-4 py-20 text-center relative z-10">
