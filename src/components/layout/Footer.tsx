@@ -1,8 +1,6 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, ArrowUp, Mail, Clock, MapPin } from "lucide-react";
-import Logo from '../ui/Logo';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -16,55 +14,45 @@ const Footer = () => {
     <footer className="bg-brand-cream/50 pt-16 pb-8" role="contentinfo" aria-label="כותרת תחתונה">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          
+          {/* לוגו + תיאור */}
           <div className="flex flex-col items-start">
-            <Logo />
+            <img 
+              src="/logo-blue.webp" 
+              alt="לוגו M.O.E" 
+              width={160} 
+              height={60} 
+              className="h-12 w-auto md:h-16 transition-all duration-300"
+            />
             <p className="text-foreground/80 mt-4 text-sm">
               סטודיו M.O.E מתמחה בעיצוב והתאמה אישית של שמלות כלה וערב, איפור ותסרוקות לכל אירוע מיוחד.
             </p>
           </div>
-          
+
+          {/* קישורים מהירים */}
           <div className="flex flex-col">
             <h3 className="text-lg font-semibold mb-4 border-b border-brand-gold/30 pb-2">קישורים מהירים</h3>
             <nav aria-label="קישורים מהירים">
               <ul className="space-y-2">
-                <li>
-                  <Link to="/" className="text-foreground/80 hover:text-brand-turquoise transition-colors">
-                    בית
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services" className="text-foreground/80 hover:text-brand-turquoise transition-colors">
-                    שירותים
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/gallery" className="text-foreground/80 hover:text-brand-turquoise transition-colors">
-                    גלריה
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-foreground/80 hover:text-brand-turquoise transition-colors">
-                    צור קשר
-                  </Link>
-                </li>
+                <li><Link to="/" className="text-foreground/80 hover:text-brand-turquoise transition-colors">בית</Link></li>
+                <li><Link to="/services" className="text-foreground/80 hover:text-brand-turquoise transition-colors">שירותים</Link></li>
+                <li><Link to="/gallery" className="text-foreground/80 hover:text-brand-turquoise transition-colors">גלריה</Link></li>
+                <li><Link to="/contact" className="text-foreground/80 hover:text-brand-turquoise transition-colors">צור קשר</Link></li>
               </ul>
             </nav>
           </div>
-          
+
+          {/* פרטי התקשרות */}
           <div className="flex flex-col">
             <h3 className="text-lg font-semibold mb-4 border-b border-brand-gold/30 pb-2">פרטי התקשרות</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-foreground/80">
                 <Phone size={16} className="text-brand-turquoise" />
-                <a href="tel:+9721234567" className="hover:text-brand-turquoise transition-colors">
-                  972-1234567+
-                </a>
+                <a href="tel:+9721234567" className="hover:text-brand-turquoise transition-colors">972-1234567+</a>
               </div>
               <div className="flex items-center gap-2 text-foreground/80">
                 <Mail size={16} className="text-brand-turquoise" />
-                <a href="mailto:info@moebride.com" className="hover:text-brand-turquoise transition-colors">
-                  info@moebride.com
-                </a>
+                <a href="mailto:info@moebride.com" className="hover:text-brand-turquoise transition-colors">info@moebride.com</a>
               </div>
               <div className="flex items-center gap-2 text-foreground/80">
                 <MapPin size={16} className="text-brand-turquoise" />
@@ -83,8 +71,7 @@ const Footer = () => {
                 </a>
               </Button>
               <Button asChild className="bg-green-500 hover:bg-green-600">
-                <a href="https://wa.me/9721234567" target="_blank" rel="noopener noreferrer" 
-                  className="flex items-center gap-2">
+                <a href="https://wa.me/9721234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <MessageCircle size={16} />
                   <span>וואטסאפ</span>
                 </a>
@@ -92,7 +79,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
+        {/* שורה תחתונה */}
         <div className="border-t border-brand-gold/20 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-foreground/70 mb-4 md:mb-0">
             © {new Date().getFullYear()} M.O.E bride studio. כל הזכויות שמורות.
@@ -105,6 +93,8 @@ const Footer = () => {
             <Link to="/accessibility" className="hover:text-brand-turquoise transition-colors underline">נגישות</Link>
           </div>
         </div>
+
+        {/* מידע משפטי */}
         <div className="mt-4 text-xs text-foreground/60" aria-label="מידע נגישות משפטי">
           <span>
             נגישות: האתר תוכנן לעמוד בתקן WCAG 2.1 AA, כולל תמיכה בקורא מסך, ניווט באמצעות מקלדת, אפשרות הגדלת טקסט, שינוי ניגודיות, הפחתת הנפשה, ותפריט נגישות.
@@ -116,6 +106,8 @@ const Footer = () => {
           </span>
         </div>
       </div>
+
+      {/* חזור למעלה */}
       <button 
         onClick={scrollToTop}
         className="fixed bottom-6 left-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 focus:outline focus:outline-brand-turquoise"
