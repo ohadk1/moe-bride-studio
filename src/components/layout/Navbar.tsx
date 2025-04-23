@@ -1,7 +1,9 @@
+
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Phone } from 'lucide-react';
+import Logo from '@/components/ui/Logo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,7 +14,37 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // Add script to handle badge visibility
+    const hideBadgeFromUrl = new URLSearchParams(window.location.search).get('forceHideBadge') === 'true';
+    if (hideBadgeFromUrl) {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .badge-lovable, .lovable-badge {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+        }
+      `;
+      document.head.appendChild(style);
+      
+      // Additional check for dynamically added badges
+      const observer = new MutationObserver((mutations) => {
+        const badgeElements = document.querySelectorAll('.badge-lovable, .lovable-badge');
+        badgeElements.forEach(element => {
+          (element as HTMLElement).style.display = 'none';
+        });
+      });
+      
+      observer.observe(document.body, { 
+        childList: true, 
+        subtree: true 
+      });
+    }
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const isHome = location.pathname === '/';
@@ -27,11 +59,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex-shrink-0">
-          <img
-            src={showScrolledStyle ? '/logo-dark.webp' : '/logo-light.webp'}
-            alt="M.O.E bride studio"
-            className="h-10 md:h-12 transition-all"
-          />
+          <Logo isScrolled={showScrolledStyle} />
         </Link>
 
         {/* Navigation */}
