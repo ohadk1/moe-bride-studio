@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Star, Trash2, LogOut } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -67,14 +66,13 @@ const CustomerReviews = () => {
         const { data, error } = await supabase
           .from('user_roles')
           .select('role')
-          .eq('id', session.user.id)
-          .single();
+          .eq('id', session.user.id);
         
         if (error) {
           console.error('Error fetching user role:', error);
-        } else {
+        } else if (data && data.length > 0) {
           // Check if the user has an admin role
-          isAdmin = data?.role === 'admin';
+          isAdmin = data[0]?.role === 'admin';
         }
       }
       
@@ -116,8 +114,7 @@ const CustomerReviews = () => {
         const { data: roleData, error: roleError } = await supabase
           .from('user_roles')
           .select('role')
-          .eq('id', data.user.id)
-          .single();
+          .eq('id', data.user.id);
         
         if (roleError) {
           console.error('Error fetching user role:', roleError);
@@ -133,8 +130,8 @@ const CustomerReviews = () => {
           return;
         }
         
-        // Check if user has admin role
-        if (roleData?.role === 'admin') {
+        // Check if user has admin role - ensure we check the first result
+        if (roleData && roleData.length > 0 && roleData[0]?.role === 'admin') {
           setAdminSession({ isAdmin: true, loading: false });
           setShowLoginForm(false);
           toast({
