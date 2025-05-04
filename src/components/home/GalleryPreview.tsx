@@ -67,7 +67,7 @@ const GalleryPreview = () => {
               <img 
                 src={category.image} 
                 alt={category.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
                 <h3 className="text-white text-xl font-semibold mb-1">{category.title}</h3>
