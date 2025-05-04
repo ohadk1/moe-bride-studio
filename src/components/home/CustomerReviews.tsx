@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Star, StarHalf, Trash2, LogOut } from 'lucide-react';
+import { Star, Trash2, LogOut } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -55,14 +55,32 @@ const CustomerReviews = () => {
   };
 
   const checkAdminSession = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    
-    // Check if user is logged in and has admin role
-    if (session?.user) {
-      const { data: { user } } = await supabase.auth.getUser();
-      const isAdmin = user?.user_metadata?.role === 'admin';
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      // Set the default state - not admin
+      let isAdmin = false;
+      
+      // Check if user is logged in first
+      if (session?.user) {
+        // Query the user_roles table to check if the user has admin role
+        const { data, error } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('id', session.user.id)
+          .single();
+        
+        if (error) {
+          console.error('Error fetching user role:', error);
+        } else {
+          // Check if the user has an admin role
+          isAdmin = data?.role === 'admin';
+        }
+      }
+      
       setAdminSession({ isAdmin, loading: false });
-    } else {
+    } catch (error) {
+      console.error('Error checking admin session:', error);
       setAdminSession({ isAdmin: false, loading: false });
     }
   };
@@ -85,6 +103,7 @@ const CustomerReviews = () => {
     e.preventDefault();
     
     try {
+      // Sign in with email and password
       const { data, error } = await supabase.auth.signInWithPassword({
         email: loginCredentials.email,
         password: loginCredentials.password,
@@ -92,21 +111,48 @@ const CustomerReviews = () => {
 
       if (error) throw error;
       
-      // Check if user has admin role
-      if (data.user?.user_metadata?.role === 'admin') {
-        setAdminSession({ isAdmin: true, loading: false });
-        setShowLoginForm(false);
-        toast({
-          title: "התחברת בהצלחה",
-          description: "ברוכה הבאה, מורן!",
-        });
-      } else {
-        await supabase.auth.signOut();
-        toast({
-          title: "אין הרשאות מנהל",
-          description: "אין לך הרשאות מנהל מערכת",
-          variant: "destructive"
-        });
+      // Check if the user has admin role in the user_roles table
+      if (data.user) {
+        const { data: roleData, error: roleError } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('id', data.user.id)
+          .single();
+        
+        if (roleError) {
+          console.error('Error fetching user role:', roleError);
+          toast({
+            title: "שגיאה בבדיקת הרשאות",
+            description: "אין לך הרשאות מנהל מערכת",
+            variant: "destructive"
+          });
+          
+          // Sign out the user if they don't have admin role
+          await supabase.auth.signOut();
+          setAdminSession({ isAdmin: false, loading: false });
+          return;
+        }
+        
+        // Check if user has admin role
+        if (roleData?.role === 'admin') {
+          setAdminSession({ isAdmin: true, loading: false });
+          setShowLoginForm(false);
+          toast({
+            title: "התחברת בהצלחה",
+            description: "ברוכה הבאה, מורן!",
+          });
+        } else {
+          // User doesn't have admin role
+          toast({
+            title: "אין הרשאות מנהל",
+            description: "אין לך הרשאות מנהל מערכת",
+            variant: "destructive"
+          });
+          
+          // Sign out the user
+          await supabase.auth.signOut();
+          setAdminSession({ isAdmin: false, loading: false });
+        }
       }
     } catch (error) {
       console.error('Login error:', error);
