@@ -1,8 +1,10 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Gown, Female, Sparkles, Scissors, Smile, Stethoscope } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -69,13 +71,39 @@ const Services = () => {
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
+  // Animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
     <section className="py-20 md:py-28 bg-gradient-to-b from-white via-[#fdf7f3] to-gray-50 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-40 h-40 bg-brand-gold/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-56 h-56 bg-brand-turquoise/10 rounded-full blur-3xl transform translate-x-1/3 translate-y-1/3" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16 md:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl md:text-5xl font-black mb-6 relative inline-block text-brand-gold tracking-tight">
             <span className="relative z-10 drop-shadow-md">השירותים שלנו</span>
             <span className="absolute bottom-1 left-1 w-full h-4 bg-brand-gold/20 -z-0 rounded-xl"></span>
@@ -83,17 +111,21 @@ const Services = () => {
           <p className="text-base md:text-lg text-foreground/70 leading-relaxed">
             יצירת שמלת החלומות שלך בהתאמה אישית לגופך ולסגנונך האישי – שירות מקצועי, מהיר, עם בדים באיכות הגבוהה ביותר.
           </p>
-        </div>
+        </motion.div>
 
         {!isMobile && (
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div 
+            className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {displayedServices.map((service, index) => (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-3xl shadow-xl p-6 flex flex-col h-full group border border-gray-100"
+                variants={itemVariants}
+                className="bg-white rounded-3xl shadow-xl p-6 flex flex-col h-full group border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="w-14 h-14 mx-auto mb-3 bg-brand-turquoise/10 rounded-full flex items-center justify-center text-brand-turquoise text-2xl">
                   {service.icon}
@@ -105,13 +137,13 @@ const Services = () => {
                 <Button
                   variant="outline"
                   className="mt-4 mx-auto border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white hover:border-transparent rounded-full px-5 py-1 text-sm shadow-sm"
-                  onClick={() => window.location.href = `/services/${service.id}`}
+                  asChild
                 >
-                  פרטים נוספים
+                  <Link to={`/services`}>פרטים נוספים</Link>
                 </Button>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {isMobile && (
@@ -121,7 +153,7 @@ const Services = () => {
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.2 }}
                 className="bg-white rounded-3xl shadow-xl p-6 flex flex-col h-full group border border-gray-100"
               >
                 <div className="w-14 h-14 mx-auto mb-3 bg-brand-turquoise/10 rounded-full flex items-center justify-center text-brand-turquoise text-2xl">
@@ -134,9 +166,9 @@ const Services = () => {
                 <Button
                   variant="outline"
                   className="mt-4 mx-auto border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white hover:border-transparent rounded-full px-5 py-1 text-sm shadow-sm"
-                  onClick={() => window.location.href = `/services/${service.id}`}
+                  asChild
                 >
-                  פרטים נוספים
+                  <Link to={`/services`}>פרטים נוספים</Link>
                 </Button>
               </motion.div>
             ))}
@@ -171,7 +203,13 @@ const Services = () => {
           </div>
         )}
 
-        <div className="text-center mt-16 md:mt-20 space-y-6">
+        <motion.div 
+          className="text-center mt-16 md:mt-20 space-y-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           {!showAllServices && services.length > displayedServices.length && (
             <Button
               onClick={() => setShowAllServices(true)}
@@ -183,19 +221,19 @@ const Services = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
             <Button
               className="bg-brand-gold hover:bg-brand-gold/90 text-white px-6 py-2 text-base md:text-lg rounded-full shadow-md"
-              onClick={() => window.location.href = "/services"}
+              asChild
             >
-              לדף השירותים המלא
+              <Link to="/services">לדף השירותים המלא</Link>
             </Button>
             <Button
               variant="outline"
               className="border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white px-6 py-2 text-base md:text-lg rounded-full"
-              onClick={() => window.location.href = "/contact"}
+              asChild
             >
-              יצירת קשר
+              <Link to="/contact">יצירת קשר</Link>
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
