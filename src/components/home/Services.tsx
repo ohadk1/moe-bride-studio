@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Gown, Female, Sparkles, Scissors, Smile, Stethoscope } from "lucide-react";
+import { ChevronLeft, ChevronRight, Shirt, UserCircle, Sparkles, Scissors, Smile, Stethoscope } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
@@ -11,14 +10,14 @@ const services = [
     id: 1,
     title: "עיצוב ותפירת שמלות כלה",
     description: "עיצוב וייצור שמלות המותאמות בדיוק למידות ולטעם האישי שלך, מהחומרים הטובים ביותר.",
-    icon: <Gown size={36} />,
+    icon: <Shirt size={36} />,
     featured: true,
   },
   {
     id: 2,
     title: "שמלות ערב",
     description: "קולקציה מגוונת של שמלות ערב אלגנטיות לכל אירוע, עם אפשרויות לשינויים והתאמות.",
-    icon: <Female size={36} />,
+    icon: <UserCircle size={36} />,
     featured: true,
   },
   {
