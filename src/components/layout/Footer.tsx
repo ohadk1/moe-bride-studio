@@ -1,8 +1,12 @@
+
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, ArrowUp, Mail, Clock, MapPin } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Footer = () => {
+  const isMobile = useIsMobile();
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -11,12 +15,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-brand-cream/50 pt-16 pb-8" role="contentinfo" aria-label="כותרת תחתונה">
+    <footer className="bg-brand-cream/50 pt-12 md:pt-16 pb-8" role="contentinfo" aria-label="כותרת תחתונה">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
           
           {/* לוגו + תיאור */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-center md:items-start">
             <img 
               src="/logo-blue.webp" 
               alt="לוגו M.O.E" 
@@ -24,15 +28,15 @@ const Footer = () => {
               height={60} 
               className="h-12 w-auto md:h-16 transition-all duration-300"
             />
-            <p className="text-foreground/80 mt-4 text-sm">
+            <p className="text-foreground/80 mt-4 text-sm max-w-xs mx-auto md:mx-0 text-center md:text-right">
               סטודיו M.O.E מתמחה בעיצוב והתאמה אישית של שמלות כלה וערב, איפור ותסרוקות לכל אירוע מיוחד.
             </p>
           </div>
 
           {/* קישורים מהירים */}
-          <div className="flex flex-col">
-            <h3 className="text-lg font-semibold mb-4 border-b border-brand-gold/30 pb-2">קישורים מהירים</h3>
-            <nav aria-label="קישורים מהירים">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-lg font-semibold mb-4 border-b border-brand-gold/30 pb-2 text-center md:text-right w-full">קישורים מהירים</h3>
+            <nav aria-label="קישורים מהירים" className="text-center md:text-right w-full">
               <ul className="space-y-2">
                 <li><Link to="/" className="text-foreground/80 hover:text-brand-turquoise transition-colors">בית</Link></li>
                 <li><Link to="/services" className="text-foreground/80 hover:text-brand-turquoise transition-colors">שירותים</Link></li>
@@ -43,22 +47,22 @@ const Footer = () => {
           </div>
 
           {/* פרטי התקשרות */}
-          <div className="flex flex-col">
-            <h3 className="text-lg font-semibold mb-4 border-b border-brand-gold/30 pb-2">פרטי התקשרות</h3>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-foreground/80">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="text-lg font-semibold mb-4 border-b border-brand-gold/30 pb-2 text-center md:text-right w-full">פרטי התקשרות</h3>
+            <div className="space-y-3 text-center md:text-right w-full">
+              <div className="flex items-center gap-2 text-foreground/80 justify-center md:justify-start">
                 <Phone size={16} className="text-brand-turquoise" />
                 <a href="tel:+9721234567" className="hover:text-brand-turquoise transition-colors">972-1234567+</a>
               </div>
-              <div className="flex items-center gap-2 text-foreground/80">
+              <div className="flex items-center gap-2 text-foreground/80 justify-center md:justify-start">
                 <Mail size={16} className="text-brand-turquoise" />
                 <a href="mailto:info@moebride.com" className="hover:text-brand-turquoise transition-colors">info@moebride.com</a>
               </div>
-              <div className="flex items-center gap-2 text-foreground/80">
+              <div className="flex items-center gap-2 text-foreground/80 justify-center md:justify-start">
                 <MapPin size={16} className="text-brand-turquoise" />
                 <span>רחוב הרצל 123, תל אביב</span>
               </div>
-              <div className="flex items-center gap-2 text-foreground/80">
+              <div className="flex items-center gap-2 text-foreground/80 justify-center md:justify-start">
                 <Clock size={16} className="text-brand-turquoise" />
                 <span>א'-ה': 10:00-19:00, ו': 10:00-14:00</span>
               </div>
@@ -85,7 +89,7 @@ const Footer = () => {
           <p className="text-sm text-foreground/70 mb-4 md:mb-0">
             © {new Date().getFullYear()} M.O.E bride studio. כל הזכויות שמורות.
           </p>
-          <div className="flex flex-col gap-1 md:flex-row md:gap-4 text-sm text-foreground/70 items-center">
+          <div className="flex flex-wrap gap-2 md:gap-4 text-sm text-foreground/70 items-center justify-center">
             <Link to="/privacy" className="hover:text-brand-turquoise transition-colors underline">מדיניות פרטיות</Link>
             <span className="hidden md:inline">|</span>
             <Link to="/terms" className="hover:text-brand-turquoise transition-colors underline">תנאי שימוש</Link>
@@ -95,14 +99,13 @@ const Footer = () => {
         </div>
 
         {/* מידע משפטי */}
-        <div className="mt-4 text-xs text-foreground/60" aria-label="מידע נגישות משפטי">
+        <div className="mt-4 text-xs text-foreground/60 text-center md:text-right" aria-label="מידע נגישות משפטי">
           <span>
             נגישות: האתר תוכנן לעמוד בתקן WCAG 2.1 AA, כולל תמיכה בקורא מסך, ניווט באמצעות מקלדת, אפשרות הגדלת טקסט, שינוי ניגודיות, הפחתת הנפשה, ותפריט נגישות.
-            לשאלות או בקשות נגישות נוספות, ניתן לפנות למייל info@moebride.com.
           </span>
-          <br />
-          <span>
-            במדיניות הפרטיות ותנאי השימוש — האתר עושה שימוש ב-cookies לאנליטיקה ושיפור חוויית המשתמש. מידע אישי מהמשתמש נשמר באופן מאובטח ואינו מועבר לגורמים שלישיים, פרט למטרות התחייבות ושיפור השירות.
+          <br className="hidden md:block" />
+          <span className="block mt-1 md:mt-0">
+            לשאלות או בקשות נגישות נוספות, ניתן לפנות למייל info@moebride.com.
           </span>
         </div>
       </div>
@@ -110,7 +113,7 @@ const Footer = () => {
       {/* חזור למעלה */}
       <button 
         onClick={scrollToTop}
-        className="fixed bottom-6 left-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 focus:outline focus:outline-brand-turquoise"
+        className={`fixed bottom-20 md:bottom-6 left-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 focus:outline focus:outline-brand-turquoise ${isMobile ? 'z-40' : 'z-30'}`}
         aria-label="חזרה למעלה"
       >
         <ArrowUp size={20} />

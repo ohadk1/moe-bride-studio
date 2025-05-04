@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Phone } from 'lucide-react';
 import Logo from '@/components/ui/Logo';
+import MobileNav from './MobileNav';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -125,7 +126,10 @@ const Navbar = () => {
           <Logo isScrolled={showScrolledStyle} />
         </Link>
 
-        {/* Navigation */}
+        {/* Mobile Navigation */}
+        <MobileNav isScrolled={showScrolledStyle} />
+
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
           <Link
             to="/"
@@ -161,12 +165,12 @@ const Navbar = () => {
           </Link>
         </nav>
 
-        {/* Call to Action */}
+        {/* Call to Action - Desktop Only */}
         <Button
           asChild
-          className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white text-sm md:text-base px-5 py-2 ml-4"
+          className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white text-sm md:text-base px-5 py-2 hidden md:flex items-center gap-2"
         >
-          <a href="tel:+9721234567" className="flex items-center gap-2">
+          <a href="tel:+9721234567">
             <Phone size={16} />
             <span>התקשר עכשיו</span>
           </a>

@@ -1,7 +1,8 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 
@@ -40,3 +41,73 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Mobile Optimization */
+
+/* Improve touch targets */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Better mobile typography */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+  
+  p, li {
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+  }
+  
+  /* Better touch targets on mobile */
+  button, a.btn, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent text scaling issues */
+  html, body {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Fix for iOS safe area */
+@supports (padding: max(0px)) {
+  .fixed-bottom {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+  
+  .fixed-top {
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+  }
+}
+
+/* Prevent overflow issues common on mobile */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Optimize images for mobile */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve form field usability on mobile */
+input, select, textarea {
+  font-size: 16px !important; /* Prevents iOS zoom on focus */
+}
+
