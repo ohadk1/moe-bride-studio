@@ -17,8 +17,8 @@ const categories = [
   },
   {
     id: 3,
-    title: "איפור מקצועי",
-    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    title: "איפור כלה",
+    image: "/images/ipur.webp",
     link: "/gallery/makeup",
   },
   {
