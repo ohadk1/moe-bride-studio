@@ -3,6 +3,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const services = [
   {
@@ -38,78 +40,177 @@ const services = [
 ];
 
 const Services = () => {
+  const isMobile = useIsMobile();
+
+  // Animation variants
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
       
       <main className="pt-20">
         {/* Header Section */}
-        <section className="py-16 hero-section-bg">
+        <motion.section 
+          className="py-16 hero-section-bg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="container mx-auto px-4 text-center hero-section-content">
-            <h1 className="text-4xl font-bold mb-6 relative inline-block text-white">
+            <motion.h1 
+              className="text-4xl font-bold mb-6 relative inline-block text-white"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
               <span className="relative z-10">השירותים שלנו</span>
               <span className="absolute bottom-1 left-0 w-full h-3 bg-brand-gold/20 -z-0"></span>
-            </h1>
-            <p className="max-w-2xl mx-auto text-lg text-white/90">
+            </motion.h1>
+            <motion.p 
+              className="max-w-2xl mx-auto text-lg text-white/90"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
               אנו מציעים מגוון רחב של שירותים מקצועיים בהתאמה אישית, משמלות כלה וערב ועד איפור מקצועי ותסרוקות
-            </p>
+            </motion.p>
           </div>
-        </section>
+        </motion.section>
         
         {/* Services List */}
-        <section className="py-16">
+        <motion.section 
+          className="py-16"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="container mx-auto px-4">
-            <div className="space-y-20">
+            <motion.div className="space-y-20">
               {services.map((service, index) => (
-                <div 
+                <motion.div 
                   key={service.id}
                   className={`grid md:grid-cols-2 gap-10 items-center ${
                     index % 2 === 1 ? 'md:rtl' : ''
                   }`}
+                  custom={index}
+                  variants={fadeIn}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
                 >
-                  <div className={`animate-fade-in opacity-0`} style={{ animationDelay: '0.2s' }}>
-                    <div className="rounded-lg overflow-hidden shadow-lg">
-                      <img 
-                        src={service.image} 
-                        alt={service.title} 
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
-                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="rounded-lg overflow-hidden shadow-lg"
+                  >
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="w-full h-auto object-cover"
+                    />
+                  </motion.div>
                   
-                  <div className={`${index % 2 === 1 ? 'md:text-right' : 'text-right'} animate-fade-in opacity-0`} 
-                    style={{ animationDelay: '0.4s' }}>
-                    <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
-                    <p className="text-foreground/80 mb-6 leading-relaxed">
+                  <div className={`${index % 2 === 1 ? 'md:text-right' : 'text-right'}`}>
+                    <motion.h2 
+                      className="text-3xl font-bold mb-4"
+                      initial={{ opacity: 0, x: isMobile ? 0 : (index % 2 === 0 ? 50 : -50) }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2, duration: 0.5 }}
+                      viewport={{ once: true }}
+                    >
+                      {service.title}
+                    </motion.h2>
+                    <motion.p 
+                      className="text-foreground/80 mb-6 leading-relaxed"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.3, duration: 0.5 }}
+                      viewport={{ once: true }}
+                    >
                       {service.description}
-                    </p>
-                    <Button asChild className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white">
-                      <Link to="/contact">לפרטים נוספים</Link>
-                    </Button>
+                    </motion.p>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                      viewport={{ once: true }}
+                    >
+                      <Button asChild className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white">
+                        <Link to="/contact">לפרטים נוספים</Link>
+                      </Button>
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
         
         {/* Call to Action */}
-        <section className="py-16 bg-brand-cream/30">
+        <motion.section 
+          className="py-16 bg-brand-cream/30"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-6">מעוניינים לשמוע עוד?</h2>
-            <p className="max-w-2xl mx-auto text-lg text-foreground/80 mb-8">
+            <motion.h2 
+              className="text-3xl font-bold mb-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              מעוניינים לשמוע עוד?
+            </motion.h2>
+            <motion.p 
+              className="max-w-2xl mx-auto text-lg text-foreground/80 mb-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
               השאירו פרטים ונחזור אליכם בהקדם, או פנו אלינו ישירות
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row justify-center gap-4"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
               <Button asChild className="bg-brand-gold hover:bg-brand-gold/90 text-white">
                 <Link to="/contact">צור קשר</Link>
               </Button>
               <Button asChild variant="outline" className="border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white">
                 <a href="tel:+9721234567">התקשר עכשיו</a>
               </Button>
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
       </main>
       
       <Footer />
