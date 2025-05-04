@@ -23,8 +23,8 @@ const categories = [
   },
   {
     id: 4,
-    title: "תסרוקות כלה",
-    image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    title: "תסרוקות",
+    image: "/images/tisrokot.webp",
     link: "/gallery/hairstyles",
   },
   {
@@ -36,7 +36,7 @@ const categories = [
   {
     id: 6,
     title: "תחפושות לפורים",
-    image: "https://images.unsplash.com/photo-1523215713844-b8e594de9429?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    image: "/images/purim.webp",
     link: "/gallery/costumes",
   },
 ];
