@@ -6,7 +6,7 @@ const categories = [
   {
     id: 1,
     title: "שמלות כלה",
-    image: "https://images.unsplash.com/photo-1566145445090-550a9a6e8f2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    image: "/images/bridegallery.webp",
     link: "/gallery/wedding-dresses",
   },
   {
