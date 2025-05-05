@@ -23,16 +23,15 @@ const Hero = () => {
     <section className="relative min-h-screen md:min-h-[120vh] flex items-center justify-center pt-16 overflow-hidden">
       {/* Background image with improved positioning for mobile */}
       <div 
-        className="absolute inset-0 
-                 bg-[url('/images/herobride.webp')] 
-                 bg-no-repeat 
-                 bg-cover
-                 bg-fixed
-                 bg-center"
-        style={{
-          backgroundPosition: isMobile ? "60% center" : "center center",
-        }}
-      />
+  className="absolute inset-0 
+             bg-[url('/images/herobride.webp')] 
+             bg-no-repeat 
+             bg-[position:60%_top] 
+             md:bg-center 
+             bg-cover 
+             bg-fixed"
+/>
+
 
       {/* Overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-0"></div>
