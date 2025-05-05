@@ -29,7 +29,7 @@ const Hero = () => {
              bg-[position:60%_top] 
              md:bg-center 
              bg-cover 
-             bg-fixed"
+             md:bg-fixed"
 />
 
 
