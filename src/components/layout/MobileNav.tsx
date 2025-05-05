@@ -72,7 +72,7 @@ const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
                 asChild
                 className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white w-full"
               >
-                <a href="tel:+9721234567" className="flex items-center justify-center gap-2">
+                <a href="tel:053-2484379" className="flex items-center justify-center gap-2">
                   <Phone size={16} />
                   <span>התקשר עכשיו</span>
                 </a>
@@ -81,7 +81,7 @@ const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
                 asChild
                 className="bg-green-500 hover:bg-green-600 text-white w-full"
               >
-                <a href="https://wa.me/9721234567" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                   <MessageCircle size={16} />
                   <span>וואטסאפ</span>
                 </a>
@@ -98,7 +98,7 @@ const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
           size="icon"
           className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white rounded-full shadow-lg h-12 w-12"
         >
-          <a href="tel:+9721234567" aria-label="התקשר עכשיו">
+          <a href="tel:053-2484379" aria-label="התקשר עכשיו">
             <Phone size={20} />
           </a>
         </Button>
@@ -107,7 +107,7 @@ const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
           size="icon"
           className="bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg h-12 w-12"
         >
-          <a href="https://wa.me/9721234567" target="_blank" rel="noopener noreferrer" aria-label="שלח הודעת וואטסאפ">
+          <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" aria-label="שלח הודעת וואטסאפ">
             <MessageCircle size={20} />
           </a>
         </Button>

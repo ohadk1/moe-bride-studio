@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
@@ -5,6 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -20,12 +22,12 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen md:min-h-[120vh] flex items-center justify-center pt-16 overflow-hidden">
       
-      {/* ✅ תמונת רקע עם התאמה מדויקת לימין במובייל */}
+      {/* תמונת רקע עם התאמה מדויקת */}
       <div 
         className="absolute inset-0 
                    bg-[url('/images/herobride.webp')] 
                    bg-no-repeat 
-                   bg-[position:25%_top] 
+                   bg-[position:60%_center] 
                    md:bg-center 
                    bg-cover 
                    md:bg-fixed"
@@ -57,7 +59,7 @@ const Hero = () => {
 
           <div className={`transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Button className="bg-brand-gold hover:bg-white hover:text-brand-gold text-white text-lg py-6 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 font-bold">
-              לתיאום מדידות
+              <a href="tel:053-2484379">לתיאום מדידות</a>
             </Button>
           </div>
         </div>

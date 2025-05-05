@@ -52,30 +52,32 @@ const Footer = () => {
             <div className="space-y-3 text-center md:text-right w-full">
               <div className="flex items-center gap-2 text-foreground/80 justify-center md:justify-start">
                 <Phone size={16} className="text-brand-turquoise" />
-                <a href="tel:+9721234567" className="hover:text-brand-turquoise transition-colors">972-1234567+</a>
+                <a href="tel:053-2484379" className="hover:text-brand-turquoise transition-colors">053-2484379</a>
+                <span className="mx-1">/</span>
+                <a href="tel:050-9608031" className="hover:text-brand-turquoise transition-colors">050-9608031</a>
               </div>
               <div className="flex items-center gap-2 text-foreground/80 justify-center md:justify-start">
                 <Mail size={16} className="text-brand-turquoise" />
-                <a href="mailto:info@moebride.com" className="hover:text-brand-turquoise transition-colors">info@moebride.com</a>
+                <a href="mailto:Moran.beauty90@gmail.com" className="hover:text-brand-turquoise transition-colors">Moran.beauty90@gmail.com</a>
               </div>
               <div className="flex items-center gap-2 text-foreground/80 justify-center md:justify-start">
                 <MapPin size={16} className="text-brand-turquoise" />
-                <span>רחוב הרצל 123, תל אביב</span>
+                <span>דימונה</span>
               </div>
               <div className="flex items-center gap-2 text-foreground/80 justify-center md:justify-start">
                 <Clock size={16} className="text-brand-turquoise" />
-                <span>א'-ה': 10:00-19:00, ו': 10:00-14:00</span>
+                <span>א'-ה': 9:00-19:00, שישי-שבת: סגור</span>
               </div>
             </div>
             <div className="flex gap-3 mt-4">
               <Button asChild className="bg-brand-turquoise hover:bg-brand-turquoise/90">
-                <a href="tel:+9721234567" className="flex items-center gap-2">
+                <a href="tel:053-2484379" className="flex items-center gap-2">
                   <Phone size={16} />
                   <span>התקשר עכשיו</span>
                 </a>
               </Button>
               <Button asChild className="bg-green-500 hover:bg-green-600">
-                <a href="https://wa.me/9721234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <MessageCircle size={16} />
                   <span>וואטסאפ</span>
                 </a>
@@ -105,7 +107,7 @@ const Footer = () => {
           </span>
           <br className="hidden md:block" />
           <span className="block mt-1 md:mt-0">
-            לשאלות או בקשות נגישות נוספות, ניתן לפנות למייל info@moebride.com.
+            לשאלות או בקשות נגישות נוספות, ניתן לפנות למייל Moran.beauty90@gmail.com.
           </span>
         </div>
       </div>

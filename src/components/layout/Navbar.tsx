@@ -170,7 +170,7 @@ const Navbar = () => {
           asChild
           className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white text-sm md:text-base px-5 py-2 hidden md:flex items-center gap-2"
         >
-          <a href="tel:+9721234567">
+          <a href="tel:053-2484379">
             <Phone size={16} />
             <span>התקשר עכשיו</span>
           </a>

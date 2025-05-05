@@ -25,24 +25,39 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    // Send form data to WhatsApp
+    try {
+      const whatsappPhone = "972532484379";
+      const message = `שם: ${formData.name}%0Aטלפון: ${formData.phone}%0Aאימייל: ${formData.email || 'לא הוזן'}%0Aהודעה: ${formData.message}`;
+      
+      // Open WhatsApp in a new tab
+      window.open(`https://wa.me/${whatsappPhone}?text=${message}`, '_blank');
+      
       toast({
         title: "הודעה נשלחה בהצלחה",
-        description: "ניצור איתך קשר בהקדם",
+        description: "פרטיך הועברו גם לוואטסאפ",
       });
-      setIsSubmitting(false);
+      
       setFormData({
         name: "",
         phone: "",
         email: "",
         message: "",
       });
-    }, 1000);
+    } catch (error) {
+      toast({
+        title: "שגיאה בשליחת הטופס",
+        description: "אנא נסו שנית מאוחר יותר",
+        variant: "destructive",
+      });
+      console.error("Error sending form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,7 +95,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h3 className="font-semibold mb-1">טלפון</h3>
-                          <p>972-1234567+</p>
+                          <p>053-2484379 / 050-9608031</p>
                           <p className="text-sm text-foreground/70 mt-1">זמינים בשעות הפעילות</p>
                         </div>
                       </div>
@@ -91,7 +106,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h3 className="font-semibold mb-1">דוא"ל</h3>
-                          <p>info@moebride.com</p>
+                          <p>Moran.beauty90@gmail.com</p>
                           <p className="text-sm text-foreground/70 mt-1">נשמח לענות לכל שאלה</p>
                         </div>
                       </div>
@@ -102,7 +117,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h3 className="font-semibold mb-1">כתובת</h3>
-                          <p>רחוב הרצל 123, תל אביב</p>
+                          <p>דימונה</p>
                           <p className="text-sm text-foreground/70 mt-1">חניה זמינה בסביבה</p>
                         </div>
                       </div>
@@ -113,21 +128,21 @@ const Contact = () => {
                         </div>
                         <div>
                           <h3 className="font-semibold mb-1">שעות פעילות</h3>
-                          <p>ראשון-חמישי: 10:00-19:00</p>
-                          <p>שישי: 10:00-14:00</p>
+                          <p>ראשון-חמישי: 9:00-19:00</p>
+                          <p>שישי-שבת: סגור</p>
                         </div>
                       </div>
                     </div>
                     
                     <div className="flex gap-3 mt-8">
                       <Button asChild className="flex-1 bg-brand-turquoise hover:bg-brand-turquoise/90">
-                        <a href="tel:+9721234567" className="flex items-center justify-center gap-2">
+                        <a href="tel:053-2484379" className="flex items-center justify-center gap-2">
                           <Phone size={16} />
                           <span>התקשר</span>
                         </a>
                       </Button>
                       <Button asChild className="flex-1 bg-green-500 hover:bg-green-600">
-                        <a href="https://wa.me/9721234567" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" 
                           className="flex items-center justify-center gap-2">
                           <MessageCircle size={16} />
                           <span>וואטסאפ</span>
@@ -225,7 +240,7 @@ const Contact = () => {
                 <div className="text-center">
                   <MapPin className="h-10 w-10 text-brand-turquoise mx-auto mb-4" />
                   <p className="text-xl font-semibold">מפת הגעה</p>
-                  <p className="text-foreground/70">רחוב הרצל 123, תל אביב</p>
+                  <p className="text-foreground/70">דימונה</p>
                 </div>
               </div>
             </div>

@@ -22,24 +22,39 @@ const ContactSection = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    // Send form data to WhatsApp
+    try {
+      const whatsappPhone = "972532484379";
+      const message = `שם: ${formData.name}%0Aטלפון: ${formData.phone}%0Aאימייל: ${formData.email || 'לא הוזן'}%0Aהודעה: ${formData.message}`;
+      
+      // Open WhatsApp in a new tab
+      window.open(`https://wa.me/${whatsappPhone}?text=${message}`, '_blank');
+      
       toast({
         title: "הודעה נשלחה בהצלחה",
-        description: "ניצור איתך קשר בהקדם",
+        description: "פרטיך הועברו גם לוואטסאפ",
       });
-      setIsSubmitting(false);
+      
       setFormData({
         name: "",
         phone: "",
         email: "",
         message: "",
       });
-    }, 1000);
+    } catch (error) {
+      toast({
+        title: "שגיאה בשליחת הטופס",
+        description: "אנא נסו שנית מאוחר יותר",
+        variant: "destructive",
+      });
+      console.error("Error sending form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -56,28 +71,28 @@ const ContactSection = () => {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold mb-2">שעות פעילות</h3>
-                  <p>ראשון-חמישי: 10:00-19:00</p>
-                  <p>שישי: 10:00-14:00</p>
+                  <p>ראשון-חמישי: 9:00-19:00</p>
+                  <p>שישי-שבת: סגור</p>
                 </div>
                 
                 <div>
                   <h3 className="font-semibold mb-2">כתובת</h3>
-                  <p>רחוב הרצל 123, תל אביב</p>
+                  <p>דימונה</p>
                 </div>
                 
                 <div>
                   <h3 className="font-semibold mb-2">טלפון</h3>
-                  <p>972-1234567+</p>
+                  <p>053-2484379 / 050-9608031</p>
                 </div>
                 
                 <div>
                   <h3 className="font-semibold mb-2">דוא"ל</h3>
-                  <p>info@moebride.com</p>
+                  <p>Moran.beauty90@gmail.com</p>
                 </div>
               </div>
               
               <Button asChild className="bg-green-500 hover:bg-green-600 mt-8 w-full">
-                <a href="https://wa.me/9721234567" target="_blank" rel="noopener noreferrer" 
+                <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" 
                   className="flex items-center justify-center gap-2">
                   <MessageCircle size={18} />
                   <span>לפניה מהירה בוואטסאפ</span>
