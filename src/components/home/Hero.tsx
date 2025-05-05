@@ -25,7 +25,7 @@ const Hero = () => {
         className="absolute inset-0 
                    bg-[url('/images/herobride.webp')] 
                    bg-no-repeat 
-                   bg-[position:75%_top] 
+                   bg-[position:25%_top] 
                    md:bg-center 
                    bg-cover 
                    md:bg-fixed"
