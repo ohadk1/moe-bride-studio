@@ -23,13 +23,11 @@ const Hero = () => {
   className="absolute inset-0 
              bg-[url('/images/herobride.webp')] 
              bg-no-repeat 
-             bg-[position:top center] 
-             sm:bg-[position:center] 
+             bg-[position:center_top] 
+             md:bg-center 
              bg-cover 
-             bg-fixed 
-             transform scale-110"
+             bg-fixed"
 />
-
 
       {/* Overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-0"></div>
