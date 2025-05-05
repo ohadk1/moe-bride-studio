@@ -24,14 +24,15 @@ const Hero = () => {
       
       {/* תמונת רקע עם התאמה מדויקת */}
       <div 
-        className="absolute inset-0 
-                   bg-[url('/images/herobride.webp')] 
-                   bg-no-repeat 
-                   bg-[position:60%_center] 
-                   md:bg-center 
-                   bg-cover 
-                   md:bg-fixed"
-      />
+  className="absolute inset-0 
+             bg-[url('/images/herobride.webp')] 
+             bg-no-repeat 
+             bg-[position:25%_top] 
+             md:bg-center 
+             bg-cover 
+             md:bg-fixed"
+/>
+
 
       {/* שכבת הצללה */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-0"></div>
