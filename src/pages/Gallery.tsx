@@ -1,11 +1,9 @@
-
 import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 
 const categories = [
-  { id: "all", name: "הכל" },
   { id: "wedding-dresses", name: "שמלות כלה" },
   { id: "evening-dresses", name: "שמלות ערב" },
   { id: "makeup", name: "איפור" },
@@ -210,12 +208,10 @@ const galleryItems = [
 ];
 
 const Gallery = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("wedding-dresses");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const filteredItems = activeCategory === "all" 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === activeCategory);
+  const filteredItems = galleryItems.filter(item => item.category === activeCategory);
 
   const openLightbox = (image: string) => {
     setSelectedImage(image);
