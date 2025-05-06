@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -12,7 +13,6 @@ const categories = [
 ];
 
 const galleryItems = [
-
   {
     id: 1,
     title: "שמלת ערב אדומה",
@@ -24,18 +24,6 @@ const galleryItems = [
     title: "שמלת ערב שחורה",
     category: "evening-dresses",
     image: "https://images.unsplash.com/photo-1562137369-1a1a0bc66744?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 3,
-    title: "איפור כלה טבעי",
-    category: "makeup",
-    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 4,
-    title: "איפור ערב דרמטי",
-    category: "makeup",
-    image: "https://images.unsplash.com/photo-1571646034647-52e4dfa9d6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 5,
@@ -188,7 +176,79 @@ const galleryItems = [
     category: "wedding-dresses",
     image: "/lovable-uploads/0f196409-9a42-4b72-949b-7f6f38995e30.png",
   },
- 
+  // New makeup photos
+  {
+    id: 30,
+    title: "איפור כלה עם שפתון אדום",
+    category: "makeup",
+    image: "/lovable-uploads/d9cad4a2-6d34-4c74-a64d-5e6ed12cb2cf.png",
+  },
+  {
+    id: 31,
+    title: "איפור כלה עם תאורה טבעית",
+    category: "makeup",
+    image: "/lovable-uploads/a4d04089-c83f-44c4-91fd-8338aa0154df.png",
+  },
+  {
+    id: 32,
+    title: "איפור כלה עם שיער גלי",
+    category: "makeup",
+    image: "/lovable-uploads/2b1c5b48-2967-4701-9e69-e946f6e61795.png",
+  },
+  {
+    id: 33,
+    title: "איפור עדין לכלה",
+    category: "makeup",
+    image: "/lovable-uploads/78f61194-ba62-4e42-b4da-fc9450eaafb7.png",
+  },
+  {
+    id: 34,
+    title: "איפור כלה אלגנטי",
+    category: "makeup",
+    image: "/lovable-uploads/40c87bce-0e79-4f88-a52f-88c0bef358fe.png",
+  },
+  {
+    id: 35,
+    title: "איפור כלה מרשים",
+    category: "makeup",
+    image: "/lovable-uploads/2f603b70-2c08-4c02-baf2-48edef49f282.png",
+  },
+  {
+    id: 36,
+    title: "איפור כלה עם שמלה לבנה",
+    category: "makeup",
+    image: "/lovable-uploads/226a2783-4c5c-426f-afbb-64c169bb6916.png",
+  },
+  {
+    id: 37,
+    title: "איפור כלה עם גוונים טבעיים",
+    category: "makeup",
+    image: "/lovable-uploads/dae53b7a-8d7d-49f2-a431-af81697c7255.png",
+  },
+  {
+    id: 38,
+    title: "איפור כלה מהודר",
+    category: "makeup",
+    image: "/lovable-uploads/03900a78-80ae-4125-9cfb-b45e24333c91.png",
+  },
+  {
+    id: 39,
+    title: "איפור כלה נוצץ",
+    category: "makeup",
+    image: "/lovable-uploads/71e7c7ba-5357-4205-8c17-48d344ac41c2.png",
+  },
+  {
+    id: 40,
+    title: "איפור כלה עם תחרה",
+    category: "makeup",
+    image: "/lovable-uploads/0acfaa04-71c0-4caf-aad1-7ccead86820b.png",
+  },
+  {
+    id: 41,
+    title: "איפור כלה מושלם",
+    category: "makeup",
+    image: "/lovable-uploads/9dddb308-9795-495a-8bab-30c7e699d7b8.png",
+  },
 ];
 
 const Gallery = () => {
