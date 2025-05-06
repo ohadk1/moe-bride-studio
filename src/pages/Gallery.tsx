@@ -63,9 +63,9 @@ const galleryItems = [
   },
   {
     id: 9,
-    title: "שמלת כלה וינטג׳",
+    title: "שמלת כלה בעיצוב ייחודי",
     category: "wedding-dresses",
-    image: "https://images.unsplash.com/photo-1527180718958-5c4199bb9489?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "/lovable-uploads/4615d0db-4bf9-4804-9da1-d8c7c6c9aac8.png",
   },
   {
     id: 10,
@@ -188,12 +188,7 @@ const galleryItems = [
     category: "wedding-dresses",
     image: "/lovable-uploads/0f196409-9a42-4b72-949b-7f6f38995e30.png",
   },
-  {
-    id: 30,
-    title: "שמלת כלה בעיצוב ייחודי",
-    category: "wedding-dresses",
-    image: "/lovable-uploads/4615d0db-4bf9-4804-9da1-d8c7c6c9aac8.png",
-  }
+ 
 ];
 
 const Gallery = () => {
