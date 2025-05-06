@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -7,37 +6,37 @@ const categories = [
     id: 1,
     title: "שמלות כלה",
     image: "/images/bridegallery.webp",
-    link: "/gallery/wedding-dresses",
+    link: "/gallery?category=wedding-dresses",
   },
   {
     id: 2,
     title: "שמלות ערב",
     image: "https://images.unsplash.com/photo-1585241936939-be4099591252?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "/gallery/evening-dresses",
+    link: "/gallery?category=evening-dresses",
   },
   {
     id: 3,
     title: "איפור כלה",
     image: "/images/ipur.webp",
-    link: "/gallery/makeup",
+    link: "/gallery?category=makeup",
   },
   {
     id: 4,
     title: "תסרוקות",
     image: "/images/tisrokot.webp",
-    link: "/gallery/hairstyles",
+    link: "/gallery?category=hairstyles",
   },
   {
     id: 5,
     title: "איפור ערב",
     image: "https://images.unsplash.com/photo-1571646034647-52e4dfa9d6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "/gallery/evening-makeup",
+    link: "/gallery?category=evening-makeup",
   },
   {
     id: 6,
     title: "תחפושות לפורים",
     image: "/images/purim.webp",
-    link: "/gallery/costumes",
+    link: "/gallery?category=costumes",
   },
 ];
 

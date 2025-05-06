@@ -1,5 +1,6 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CategoryFilter from "@/components/gallery/CategoryFilter";
@@ -9,8 +10,17 @@ import GalleryHero from "@/components/gallery/GalleryHero";
 import { categories, galleryItems } from "@/data/galleryData";
 
 const Gallery = () => {
-  const [activeCategory, setActiveCategory] = useState("wedding-dresses");
+  const [searchParams] = useSearchParams();
+  const categoryParam = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState(categoryParam || "wedding-dresses");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Update active category when URL query parameter changes
+  useEffect(() => {
+    if (categoryParam) {
+      setActiveCategory(categoryParam);
+    }
+  }, [categoryParam]);
 
   const filteredItems = galleryItems.filter(item => item.category === activeCategory);
 
