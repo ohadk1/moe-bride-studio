@@ -37,7 +37,7 @@ const ServiceCard = ({ id, title, description, image, index }: ServiceItemProps)
         />
       </motion.div>
       
-      <div className={`${index % 2 === 1 ? 'md:text-right' : 'text-right'}`}>
+      <div className={`${index % 2 === 1 ? 'md:text-right' : 'text-right'} p-6 rounded-lg bg-gradient-to-br from-white via-[#fdf7f3] to-gray-50 shadow-md border border-gray-100/50`}>
         <motion.h2 
           className="text-3xl font-bold mb-4"
           initial={{ opacity: 0, x: isMobile ? 0 : (index % 2 === 0 ? 50 : -50) }}
