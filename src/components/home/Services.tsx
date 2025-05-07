@@ -1,7 +1,7 @@
-import { useState } from "react";
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Shirt, UserCircle, Sparkles, Scissors, Smile, Stethoscope } from "lucide-react";
+import { Hanger, Shirt, UserCircle, Sparkles, Scissors, Smile } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
@@ -10,65 +10,48 @@ const services = [
     id: 1,
     title: "עיצוב ותפירת שמלות כלה",
     description: "עיצוב וייצור שמלות המותאמות בדיוק למידות ולטעם האישי שלך, מהחומרים הטובים ביותר.",
-    icon: <Shirt size={36} />,
-    featured: true,
+    icon: <Shirt size={40} />,
+    gradient: "bg-gradient-to-br from-pink-50 via-white to-rose-50",
   },
   {
     id: 2,
     title: "שמלות ערב",
     description: "קולקציה מגוונת של שמלות ערב אלגנטיות לכל אירוע, עם אפשרויות לשינויים והתאמות.",
-    icon: <UserCircle size={36} />,
-    featured: true,
+    icon: <Hanger size={40} />,
+    gradient: "bg-gradient-to-br from-purple-50 via-white to-indigo-50",
   },
   {
     id: 3,
     title: "איפור מקצועי",
     description: "איפור מקצועי לכלות, אירועים, וקונספטים מיוחדים ע״י מאפרות בעלות ניסיון רב.",
-    icon: <Sparkles size={36} />,
-    featured: true,
+    icon: <Sparkles size={40} />,
+    gradient: "bg-gradient-to-br from-orange-50 via-white to-amber-50",
   },
   {
     id: 4,
     title: "תסרוקות מעוצבות",
     description: "תסרוקות מורכבות ועיצובי שיער ייחודיים המותאמים לסגנון האישי שלך ולאירוע.",
-    icon: <Scissors size={36} />,
-    featured: true,
+    icon: <Scissors size={40} />,
+    gradient: "bg-gradient-to-br from-blue-50 via-white to-sky-50",
   },
   {
     id: 5,
     title: "תפירת תחפושות לפורים",
     description: "תחפושות מרהיבות ואיכותיות לפורים בהתאמה אישית, לכל גיל ולכל רעיון.",
-    icon: <Smile size={36} />,
-    featured: false,
+    icon: <Smile size={40} />,
+    gradient: "bg-gradient-to-br from-green-50 via-white to-emerald-50",
   },
   {
     id: 6,
     title: "שדרוגים ושינויים",
     description: "שירות שדרוג ושינוי שמלות קיימות, התאמת מידות וסגנון לצרכים המשתנים שלך.",
-    icon: <Stethoscope size={36} />,
-    featured: false,
+    icon: <UserCircle size={40} />,
+    gradient: "bg-gradient-to-br from-yellow-50 via-white to-amber-50",
   },
 ];
 
 const Services = () => {
-  const [showAllServices, setShowAllServices] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
   const isMobile = useIsMobile();
-
-  const servicesPerPage = 2;
-  const displayedServices = showAllServices ? services : services.filter(service => service.featured);
-  const totalPages = Math.ceil(displayedServices.length / servicesPerPage);
-  const mobileServices = isMobile
-    ? displayedServices.slice(currentPage * servicesPerPage, (currentPage + 1) * servicesPerPage)
-    : displayedServices;
-
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages);
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
-  };
 
   // Animations
   const containerVariants = {
@@ -112,121 +95,64 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {!isMobile && (
-          <motion.div 
-            className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {displayedServices.map((service, index) => (
-              <motion.div
-                key={service.id}
-                variants={itemVariants}
-                className="bg-white rounded-3xl shadow-xl p-6 flex flex-col h-full group border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="w-14 h-14 mx-auto mb-3 bg-brand-turquoise/10 rounded-full flex items-center justify-center text-brand-turquoise text-2xl">
-                  {service.icon}
-                </div>
-                <h3 className="text-lg font-bold text-center text-brand-turquoise mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-center text-sm leading-5">{service.description}</p>
-                <Button
-                  variant="outline"
-                  className="mt-4 mx-auto border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white hover:border-transparent rounded-full px-5 py-1 text-sm shadow-sm"
-                  asChild
-                >
-                  <Link to={`/services`}>פרטים נוספים</Link>
-                </Button>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
-
-        {isMobile && (
-          <div className="flex flex-col space-y-6">
-            {mobileServices.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="bg-white rounded-3xl shadow-xl p-6 flex flex-col h-full group border border-gray-100"
-              >
-                <div className="w-14 h-14 mx-auto mb-3 bg-brand-turquoise/10 rounded-full flex items-center justify-center text-brand-turquoise text-2xl">
-                  {service.icon}
-                </div>
-                <h3 className="text-lg font-bold text-center text-brand-turquoise mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-center text-sm leading-5">{service.description}</p>
-                <Button
-                  variant="outline"
-                  className="mt-4 mx-auto border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white hover:border-transparent rounded-full px-5 py-1 text-sm shadow-sm"
-                  asChild
-                >
-                  <Link to={`/services`}>פרטים נוספים</Link>
-                </Button>
-              </motion.div>
-            ))}
-
-            {totalPages > 1 && (
-              <div className="flex justify-center items-center mt-6 gap-3">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8 rounded-full"
-                  onClick={prevPage}
-                >
-                  <ChevronRight className="h-4 w-4" />
-                  <span className="sr-only">Previous</span>
-                </Button>
-
-                <div className="text-sm text-gray-500">
-                  {currentPage + 1} / {totalPages}
-                </div>
-
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8 rounded-full"
-                  onClick={nextPage}
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                  <span className="sr-only">Next</span>
-                </Button>
+        <motion.div 
+          className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {services.map((service) => (
+            <motion.div
+              key={service.id}
+              variants={itemVariants}
+              className={`${service.gradient} rounded-3xl shadow-lg hover:shadow-xl p-6 flex flex-col h-full border border-gray-100/50 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden`}
+            >
+              {/* Decorative elements */}
+              <div className="absolute -top-6 -right-6 w-20 h-20 bg-brand-turquoise/5 rounded-full" />
+              <div className="absolute bottom-0 left-0 w-40 h-1 bg-gradient-to-r from-transparent via-brand-turquoise/20 to-transparent" />
+              
+              <div className="w-20 h-20 mx-auto mb-5 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center text-brand-turquoise shadow-sm border border-gray-100/60 group-hover:scale-110 transition-transform duration-300">
+                {service.icon}
               </div>
-            )}
-          </div>
-        )}
+              
+              <h3 className="text-xl font-bold text-center text-brand-turquoise mb-3 group-hover:text-brand-turquoise/90">
+                {service.title}
+              </h3>
+              
+              <p className="text-gray-600 text-center text-base leading-relaxed mb-6 flex-grow">
+                {service.description}
+              </p>
+              
+              <Button
+                variant="outline"
+                className="w-full mt-auto border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white hover:border-transparent rounded-xl py-5 px-4 text-base shadow-sm transition-all duration-300 hover:shadow-md group-hover:scale-[1.02]"
+                asChild
+              >
+                <Link to={`/services`}>פרטים נוספים</Link>
+              </Button>
+            </motion.div>
+          ))}
+        </motion.div>
 
         <motion.div 
-          className="text-center mt-16 md:mt-20 space-y-6"
+          className="text-center mt-16 md:mt-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {!showAllServices && services.length > displayedServices.length && (
+          {/* "Show All Services" button removed as requested */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button
-              onClick={() => setShowAllServices(true)}
-              className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white px-6 py-2 text-base md:text-lg rounded-full shadow-md"
-            >
-              הצג את כל השירותים
-            </Button>
-          )}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
-            <Button
-              className="bg-brand-gold hover:bg-brand-gold/90 text-white px-6 py-2 text-base md:text-lg rounded-full shadow-md"
+              className="bg-brand-gold hover:bg-brand-gold/90 text-white px-6 py-6 text-lg rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               asChild
             >
               <Link to="/services">לדף השירותים המלא</Link>
             </Button>
             <Button
               variant="outline"
-              className="border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white px-6 py-2 text-base md:text-lg rounded-full"
+              className="border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white px-6 py-6 text-lg rounded-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1"
               asChild
             >
               <Link to="/contact">יצירת קשר</Link>
