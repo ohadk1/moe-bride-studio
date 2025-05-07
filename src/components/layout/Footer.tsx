@@ -3,9 +3,22 @@ import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, ArrowUp, Mail, Clock, MapPin } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useState, useEffect } from 'react';
 
 const Footer = () => {
   const isMobile = useIsMobile();
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  // Show scroll button only after scrolling down
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowScrollButton(scrollY > 300);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -112,14 +125,53 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* חזור למעלה */}
-      <button 
-        onClick={scrollToTop}
-        className={`fixed bottom-20 md:bottom-6 left-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 focus:outline focus:outline-brand-turquoise ${isMobile ? 'z-40' : 'z-30'}`}
-        aria-label="חזרה למעלה"
-      >
-        <ArrowUp size={20} />
-      </button>
+      {/* Mobile floating action buttons */}
+      {isMobile && (
+        <div className="fixed bottom-4 left-4 flex flex-col gap-4 z-50">
+          {/* Book now CTA */}
+          <Button 
+            asChild
+            className="bg-brand-gold hover:bg-brand-gold/90 text-white rounded-full shadow-lg px-6 py-3 text-base"
+          >
+            <a href="tel:053-2484379" aria-label="הזמן עכשיו">
+              <span>הזמן עכשיו</span>
+            </a>
+          </Button>
+          
+          {/* WhatsApp */}
+          <Button
+            asChild
+            size="icon"
+            className="bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg h-14 w-14"
+          >
+            <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" aria-label="שלח הודעת וואטסאפ">
+              <MessageCircle size={24} />
+            </a>
+          </Button>
+          
+          {/* Phone */}
+          <Button
+            asChild
+            size="icon"
+            className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white rounded-full shadow-lg h-14 w-14"
+          >
+            <a href="tel:053-2484379" aria-label="התקשר עכשיו">
+              <Phone size={24} />
+            </a>
+          </Button>
+        </div>
+      )}
+
+      {/* חזור למעלה - positioned away from mobile buttons */}
+      {showScrollButton && (
+        <button 
+          onClick={scrollToTop}
+          className={`fixed bottom-24 md:bottom-6 right-4 md:left-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 focus:outline focus:outline-brand-turquoise animate-fade-in ${isMobile ? 'z-40' : 'z-30'}`}
+          aria-label="חזרה למעלה"
+        >
+          <ArrowUp size={20} />
+        </button>
+      )}
     </footer>
   );
 };

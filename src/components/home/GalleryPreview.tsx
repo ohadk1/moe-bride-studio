@@ -1,5 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 const categories = [
   {
@@ -41,8 +43,10 @@ const categories = [
 ];
 
 const GalleryPreview = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
   return (
-    <section className="py-20 bg-brand-cream/20">
+    <section ref={sectionRef} id="gallery-section" className="py-20 bg-brand-cream/20">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl font-bold mb-6 relative inline-block">

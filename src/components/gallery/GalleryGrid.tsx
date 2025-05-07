@@ -1,5 +1,6 @@
 
 import React from "react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export interface GalleryItem {
   id: number;
@@ -25,15 +26,18 @@ const GalleryGrid = ({ items, onImageClick }: GalleryGridProps) => {
               style={{ animationDelay: `${0.1 * (index % 4)}s` }}
             >
               <div 
-                className="overflow-hidden rounded-lg shadow-md cursor-pointer h-64 relative"
+                className="overflow-hidden rounded-lg shadow-md cursor-pointer relative"
                 onClick={() => onImageClick(item.image)}
               >
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 z-10"></div>
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                <AspectRatio ratio={3/4} className="bg-gray-100">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 z-10"></div>
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </AspectRatio>
                 <div className="absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
                   <h3 className="text-white font-medium">{item.title}</h3>
                 </div>
@@ -41,6 +45,12 @@ const GalleryGrid = ({ items, onImageClick }: GalleryGridProps) => {
             </div>
           ))}
         </div>
+        
+        {items.length === 0 && (
+          <div className="text-center py-20">
+            <h3 className="text-xl text-gray-500">אין תמונות בקטגוריה זו</h3>
+          </div>
+        )}
       </div>
     </section>
   );

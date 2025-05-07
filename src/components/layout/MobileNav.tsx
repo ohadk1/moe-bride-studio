@@ -10,6 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { motion } from "framer-motion";
 import Logo from '@/components/ui/Logo';
 
 const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
@@ -20,6 +21,20 @@ const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
   useEffect(() => {
     setOpen(false);
   }, [location]);
+
+  // Animation variants
+  const menuItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
 
   return (
     <>
@@ -37,80 +52,100 @@ const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
               <SheetTitle className="text-2xl font-bold">תפריט</SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-6 text-lg">
-              <Link
-                to="/"
-                className="py-2 border-b border-gray-200 text-foreground"
-                onClick={() => setOpen(false)}
+              <motion.div 
+                custom={0}
+                initial="hidden"
+                animate="visible"
+                variants={menuItemVariants}
               >
-                בית
-              </Link>
-              <Link
-                to="/services"
-                className="py-2 border-b border-gray-200 text-foreground"
-                onClick={() => setOpen(false)}
+                <Link
+                  to="/"
+                  className="py-2 border-b border-gray-200 text-foreground block"
+                  onClick={() => setOpen(false)}
+                >
+                  בית
+                </Link>
+              </motion.div>
+              <motion.div
+                custom={1}
+                initial="hidden"
+                animate="visible"
+                variants={menuItemVariants}
               >
-                שירותים
-              </Link>
-              <Link
-                to="/gallery"
-                className="py-2 border-b border-gray-200 text-foreground"
-                onClick={() => setOpen(false)}
+                <Link
+                  to="/services"
+                  className="py-2 border-b border-gray-200 text-foreground block"
+                  onClick={() => setOpen(false)}
+                >
+                  שירותים
+                </Link>
+              </motion.div>
+              <motion.div
+                custom={2}
+                initial="hidden"
+                animate="visible"
+                variants={menuItemVariants}
               >
-                גלריה
-              </Link>
-              <Link
-                to="/contact"
-                className="py-2 border-b border-gray-200 text-foreground"
-                onClick={() => setOpen(false)}
+                <Link
+                  to="/gallery"
+                  className="py-2 border-b border-gray-200 text-foreground block"
+                  onClick={() => setOpen(false)}
+                >
+                  גלריה
+                </Link>
+              </motion.div>
+              <motion.div
+                custom={3}
+                initial="hidden"
+                animate="visible"
+                variants={menuItemVariants}
               >
-                צור קשר
-              </Link>
+                <Link
+                  to="/contact"
+                  className="py-2 border-b border-gray-200 text-foreground block"
+                  onClick={() => setOpen(false)}
+                >
+                  צור קשר
+                </Link>
+              </motion.div>
             </nav>
 
             <div className="mt-auto flex flex-col gap-3">
-              <Button
-                asChild
-                className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white w-full"
+              <motion.div
+                custom={4}
+                initial="hidden"
+                animate="visible"
+                variants={menuItemVariants}
               >
-                <a href="tel:053-2484379" className="flex items-center justify-center gap-2">
-                  <Phone size={16} />
-                  <span>התקשר עכשיו</span>
-                </a>
-              </Button>
-              <Button
-                asChild
-                className="bg-green-500 hover:bg-green-600 text-white w-full"
+                <Button
+                  asChild
+                  className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white w-full"
+                >
+                  <a href="tel:053-2484379" className="flex items-center justify-center gap-2">
+                    <Phone size={16} />
+                    <span>התקשר עכשיו</span>
+                  </a>
+                </Button>
+              </motion.div>
+              <motion.div
+                custom={5}
+                initial="hidden"
+                animate="visible"
+                variants={menuItemVariants}
               >
-                <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                  <MessageCircle size={16} />
-                  <span>וואטסאפ</span>
-                </a>
-              </Button>
+                <Button
+                  asChild
+                  className="bg-green-500 hover:bg-green-600 text-white w-full"
+                >
+                  <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                    <MessageCircle size={16} />
+                    <span>וואטסאפ</span>
+                  </a>
+                </Button>
+              </motion.div>
             </div>
           </SheetContent>
         </Sheet>
-      </div>
-
-      {/* Sticky Mobile CTA Buttons */}
-      <div className="fixed bottom-4 left-4 flex flex-col gap-2 md:hidden z-50">
-        <Button
-          asChild
-          size="icon"
-          className="bg-brand-turquoise hover:bg-brand-turquoise/90 text-white rounded-full shadow-lg h-12 w-12"
-        >
-          <a href="tel:053-2484379" aria-label="התקשר עכשיו">
-            <Phone size={20} />
-          </a>
-        </Button>
-        <Button
-          asChild
-          size="icon"
-          className="bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg h-12 w-12"
-        >
-          <a href="https://wa.me/972532484379" target="_blank" rel="noopener noreferrer" aria-label="שלח הודעת וואטסאפ">
-            <MessageCircle size={20} />
-          </a>
-        </Button>
       </div>
     </>
   );
