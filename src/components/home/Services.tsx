@@ -1,6 +1,7 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Shirt, UserCircle, Sparkles, Scissors, Smile, Coat } from "lucide-react";
+import { Shirt, UserCircle, Sparkles, Scissors, Smile } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,7 @@ const services = [
     id: 2,
     title: "שמלות ערב",
     description: "קולקציה מגוונת של שמלות ערב אלגנטיות לכל אירוע, עם אפשרויות לשינויים והתאמות.",
-    icon: <Coat size={40} />,
+    icon: <Shirt size={40} />,
     gradient: "bg-gradient-to-br from-purple-50 via-white to-indigo-50",
   },
   {
