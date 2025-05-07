@@ -11,14 +11,14 @@ const services = [
     title: "עיצוב ותפירת שמלות כלה",
     description: "עיצוב וייצור שמלות המותאמות בדיוק למידות ולטעם האישי שלך, מהחומרים הטובים ביותר.",
     icon: <Shirt size={40} />,
-    gradient: "bg-gradient-to-br from-pink-50 via-white to-rose-50",
+    gradient: "bg-gradient-to-br from-orange-50 via-white to-amber-50",
   },
   {
     id: 2,
     title: "שמלות ערב",
     description: "קולקציה מגוונת של שמלות ערב אלגנטיות לכל אירוע, עם אפשרויות לשינויים והתאמות.",
     icon: <Shirt size={40} />,
-    gradient: "bg-gradient-to-br from-purple-50 via-white to-indigo-50",
+    gradient: "bg-gradient-to-br from-orange-50 via-white to-amber-50",
   },
   {
     id: 3,
@@ -32,21 +32,21 @@ const services = [
     title: "תסרוקות מעוצבות",
     description: "תסרוקות מורכבות ועיצובי שיער ייחודיים המותאמים לסגנון האישי שלך ולאירוע.",
     icon: <Scissors size={40} />,
-    gradient: "bg-gradient-to-br from-blue-50 via-white to-sky-50",
+    gradient: "bg-gradient-to-br from-orange-50 via-white to-amber-50",
   },
   {
     id: 5,
     title: "תפירת תחפושות לפורים",
     description: "תחפושות מרהיבות ואיכותיות לפורים בהתאמה אישית, לכל גיל ולכל רעיון.",
     icon: <Smile size={40} />,
-    gradient: "bg-gradient-to-br from-green-50 via-white to-emerald-50",
+    gradient: "bg-gradient-to-br from-orange-50 via-white to-amber-50",
   },
   {
     id: 6,
     title: "שדרוגים ושינויים",
     description: "שירות שדרוג ושינוי שמלות קיימות, התאמת מידות וסגנון לצרכים המשתנים שלך.",
     icon: <UserCircle size={40} />,
-    gradient: "bg-gradient-to-br from-yellow-50 via-white to-amber-50",
+    gradient: "bg-gradient-to-br from-orange-50 via-white to-amber-50",
   },
 ];
 
