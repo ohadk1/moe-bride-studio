@@ -19,7 +19,8 @@ const categories = [
   {
     id: 3,
     title: "איפור כלה",
-    image: "/images/ipur.webp",
+    // Replaced ipur.webp with a placeholder image
+    image: "https://images.unsplash.com/photo-1560701943-9d8e7b47a86b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
     link: "/gallery?category=makeup",
   },
   {

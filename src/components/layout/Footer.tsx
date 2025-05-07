@@ -125,18 +125,10 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Mobile floating action buttons */}
+      {/* Mobile floating action buttons - Repositioned to bottom-left corner */}
       {isMobile && (
-        <div className="fixed bottom-4 left-4 flex flex-col gap-4 z-50">
-          {/* Book now CTA */}
-          <Button 
-            asChild
-            className="bg-brand-gold hover:bg-brand-gold/90 text-white rounded-full shadow-lg px-6 py-3 text-base"
-          >
-            <a href="tel:053-2484379" aria-label="הזמן עכשיו">
-              <span>הזמן עכשיו</span>
-            </a>
-          </Button>
+        <div className="fixed bottom-6 left-4 flex flex-col gap-3 z-50">
+          {/* "Book Now" button removed as requested */}
           
           {/* WhatsApp */}
           <Button
@@ -162,11 +154,11 @@ const Footer = () => {
         </div>
       )}
 
-      {/* חזור למעלה - positioned away from mobile buttons */}
+      {/* חזור למעלה - adjusted position to avoid overlap with mobile buttons */}
       {showScrollButton && (
         <button 
           onClick={scrollToTop}
-          className={`fixed bottom-24 md:bottom-6 right-4 md:left-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 focus:outline focus:outline-brand-turquoise animate-fade-in ${isMobile ? 'z-40' : 'z-30'}`}
+          className={`fixed bottom-24 md:bottom-6 right-6 bg-brand-gold/90 hover:bg-brand-gold text-white p-3 rounded-full shadow-lg transition-all hover:scale-110 focus:outline focus:outline-brand-turquoise animate-fade-in ${isMobile ? 'z-40' : 'z-30'}`}
           aria-label="חזרה למעלה"
         >
           <ArrowUp size={20} />

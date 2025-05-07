@@ -8,7 +8,6 @@ import ContactSection from "@/components/home/ContactSection";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { useLocation } from "react-router-dom";
-import { toast } from "@/components/ui/use-toast";
 
 const Index = () => {
   const location = useLocation();
@@ -30,12 +29,7 @@ const Index = () => {
       }, 100);
     }
     
-    // Welcome toast
-    toast({
-      title: "ברוכים הבאים",
-      description: "לסטודיו M.O.E - עיצוב שמלות כלה וערב",
-      duration: 3000,
-    });
+    // Welcome toast removed as requested
   }, [location]);
 
   return (
