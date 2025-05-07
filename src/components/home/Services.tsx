@@ -1,7 +1,6 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Hanger, Shirt, UserCircle, Sparkles, Scissors, Smile } from "lucide-react";
+import { Shirt, UserCircle, Sparkles, Scissors, Smile, Coat } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
@@ -17,7 +16,7 @@ const services = [
     id: 2,
     title: "שמלות ערב",
     description: "קולקציה מגוונת של שמלות ערב אלגנטיות לכל אירוע, עם אפשרויות לשינויים והתאמות.",
-    icon: <Hanger size={40} />,
+    icon: <Coat size={40} />,
     gradient: "bg-gradient-to-br from-purple-50 via-white to-indigo-50",
   },
   {
@@ -142,7 +141,6 @@ const Services = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {/* "Show All Services" button removed as requested */}
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button
               className="bg-brand-gold hover:bg-brand-gold/90 text-white px-6 py-6 text-lg rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
