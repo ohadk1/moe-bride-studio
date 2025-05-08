@@ -109,6 +109,8 @@ const Footer = () => {
             <span className="hidden md:inline">|</span>
             <Link to="/terms" className="hover:text-brand-turquoise transition-colors underline">תנאי שימוש</Link>
             <span className="hidden md:inline">|</span>
+            <Link to="/copyright" className="hover:text-brand-turquoise transition-colors underline">זכויות יוצרים</Link>
+            <span className="hidden md:inline">|</span>
             <Link to="/accessibility" className="hover:text-brand-turquoise transition-colors underline">נגישות</Link>
           </div>
         </div>

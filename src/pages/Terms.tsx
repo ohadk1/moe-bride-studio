@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 
 const TermsPage = () => (
   <main id="main-content" className="container mx-auto p-8 max-w-3xl text-right animate-fade-in">
@@ -14,25 +14,39 @@ const TermsPage = () => (
         חזרה לדף הבית
       </Link>
     </div>
-    <h1 className="text-2xl md:text-3xl font-bold mb-5">תנאי שימוש</h1>
-    <p className="mb-4">
-      בכניסתך לאתר/שימוש בשירות סטודיו M.O.E, הנך מאשר/ת את התנאים הבאים במלואם:
-    </p>
-    <ul className="list-disc pr-6 mb-4">
-      <li>השימוש באתר מיועד לצפייה, קבלת מידע, ותיאום פנייה לשירותי סטודיו M.O.E בלבד.</li>
-      <li>כל התכנים והמידע הינם רכוש בלעדי של סטודיו M.O.E, ואסור להעתיק/לפרסם/להפיץ ללא אישור בכתב.</li>
-      <li>מותגי הסטודיו והלוגו מוגנים בזכויות יוצרים.</li>
-      <li>אין למסור פרטי קשר פיקטיביים או להשתמש בתכני האתר לא חוקית.</li>
-      <li>נתוני משתמש נשמרים בפרטיות ומטופלים על פי <Link to="/privacy" className="text-brand-turquoise underline">מדיניות הפרטיות</Link>.</li>
-      <li>השימוש באתר פועל לפי חוקי מדינת ישראל בלבד.</li>
-      <li>פניות להסרת מידע/עדכון פרטים יתבצעו בכתובת: <span className="font-bold">info@moebride.com</span>.</li>
-      <li>השימוש באתר כרוך בקבלת תנאים אלו — לרבות שימוש בעוגיות (cookies) כמפורט במדיניות.</li>
-      <li>הצהרת נגישות המלאה מופיעה בדף <Link to="/accessibility" className="text-brand-turquoise underline">נגישות</Link>.</li>
-    </ul>
-    <p className="mt-4">
-      שאלות או הבהרות — נשמח לעמוד לשירותכם.
-    </p>
-    <p className="mt-6 font-bold">עדכון תנאי שימוש: {new Date().toLocaleDateString("he-IL")}</p>
+    <div className="flex items-center gap-2 mb-5">
+      <FileText size={28} className="text-brand-gold" />
+      <h1 className="text-2xl md:text-3xl font-bold">תנאי שימוש</h1>
+    </div>
+    <div className="space-y-6 text-foreground/90">
+      <p className="font-medium">
+        בכניסתך לאתר "סטודיו M.O.E", הנך מסכים/ה לתנאי השימוש הבאים:
+      </p>
+      
+      <ul className="list-disc pr-6 space-y-3">
+        <li>
+          <strong>זכויות יוצרים:</strong> כל התכנים באתר (תמונות, טקסטים, לוגואים, סרטונים) הם רכוש בלעדי של בעלת האתר ואסורים להעתקה ללא רשות בכתב.
+        </li>
+        <li>
+          <strong>תוכן המידע:</strong> האתר מספק מידע כללי בלבד, ואין לראות בו התחייבות לתוצאה כלשהי.
+        </li>
+        <li>
+          <strong>שינויים בתוכן:</strong> ייתכנו שינויים בתכנים, מחיקות ועדכונים ללא התראה מוקדמת.
+        </li>
+        <li>
+          <strong>קישורים חיצוניים:</strong> באתר קיימים קישורים לאתרים חיצוניים – אין אחריות עליהם או על תוכנם.
+        </li>
+        <li>
+          <strong>חוקים ושיפוט:</strong> כל שימוש באתר כפוף לחוקי מדינת ישראל. סמכות השיפוט תתבצע בבית משפט באזור הדרום או המרכז לפי שיקול דעת בעלת האתר.
+        </li>
+      </ul>
+      
+      <div className="pt-6 mt-6 border-t border-brand-gold/30">
+        <p className="text-sm text-foreground/60">
+          עמוד זה עודכן לאחרונה ב-{new Date().toLocaleDateString("he-IL")}
+        </p>
+      </div>
+    </div>
   </main>
 );
 
