@@ -1,53 +1,41 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
-
-const categories = [
-  {
-    id: 1,
-    title: "שמלות כלה",
-    image: "/images/bridegallery.webp",
-    link: "/gallery?category=wedding-dresses",
-  },
-  {
-    id: 2,
-    title: "שמלות ערב",
-    image: "https://images.unsplash.com/photo-1585241936939-be4099591252?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "/gallery?category=evening-dresses",
-  },
-  {
-    id: 3,
-    title: "איפור כלה",
-    // Replaced ipur.webp with a placeholder image
-    image: "https://images.unsplash.com/photo-1560701943-9d8e7b47a86b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "/gallery?category=makeup",
-  },
-  {
-    id: 4,
-    title: "תסרוקות",
-    image: "/images/tisrokot.webp",
-    link: "/gallery?category=hairstyles",
-  },
-  {
-    id: 5,
-    title: "איפור ערב",
-    image: "https://images.unsplash.com/photo-1571646034647-52e4dfa9d6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    link: "/gallery?category=evening-makeup",
-  },
-  {
-    id: 6,
-    title: "תחפושות לפורים",
-    image: "/images/purim.webp",
-    link: "/gallery?category=costumes",
-  },
-];
-
+const categories = [{
+  id: 1,
+  title: "שמלות כלה",
+  image: "/images/bridegallery.webp",
+  link: "/gallery?category=wedding-dresses"
+}, {
+  id: 2,
+  title: "שמלות ערב",
+  image: "https://images.unsplash.com/photo-1585241936939-be4099591252?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+  link: "/gallery?category=evening-dresses"
+}, {
+  id: 3,
+  title: "איפור כלה",
+  // Replaced ipur.webp with a placeholder image
+  image: "https://images.unsplash.com/photo-1560701943-9d8e7b47a86b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+  link: "/gallery?category=makeup"
+}, {
+  id: 4,
+  title: "תסרוקות",
+  image: "/images/tisrokot.webp",
+  link: "/gallery?category=hairstyles"
+}, {
+  id: 5,
+  title: "איפור ערב",
+  image: "https://images.unsplash.com/photo-1571646034647-52e4dfa9d6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+  link: "/gallery?category=evening-makeup"
+}, {
+  id: 6,
+  title: "תחפושות לפורים",
+  image: "/images/purim.webp",
+  link: "/gallery?category=costumes"
+}];
 const GalleryPreview = () => {
   const sectionRef = useRef<HTMLElement>(null);
-
-  return (
-    <section ref={sectionRef} id="gallery-section" className="py-20 bg-brand-cream/20">
+  return <section ref={sectionRef} id="gallery-section" className="py-20 md:py-28 bg-gradient-to-b from-white via-[#fdf7f3] to-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl font-bold mb-6 relative inline-block">
@@ -60,26 +48,18 @@ const GalleryPreview = () => {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category, index) => (
-            <Link 
-              key={category.id} 
-              to={category.link}
-              className="group block relative rounded-lg overflow-hidden shadow-md h-64 animate-fade-in opacity-0"
-              style={{ animationDelay: `${0.1 * index}s` }}
-            >
+          {categories.map((category, index) => <Link key={category.id} to={category.link} className="group block relative rounded-lg overflow-hidden shadow-md h-64 animate-fade-in opacity-0" style={{
+          animationDelay: `${0.1 * index}s`
+        }}>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-              <img 
-                src={category.image} 
-                alt={category.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                style={{ objectPosition: "center 30%" }}
-              />
+              <img src={category.image} alt={category.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" style={{
+            objectPosition: "center 30%"
+          }} />
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
                 <h3 className="text-white text-xl font-semibold mb-1">{category.title}</h3>
                 <span className="inline-block text-white/80 text-sm">לגלריה המלאה</span>
               </div>
-            </Link>
-          ))}
+            </Link>)}
         </div>
         
         <div className="text-center mt-12">
@@ -88,8 +68,6 @@ const GalleryPreview = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default GalleryPreview;
