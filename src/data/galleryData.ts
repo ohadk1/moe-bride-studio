@@ -299,12 +299,6 @@ export const galleryItems = [
     image: "/lovable-uploads/71e7c7ba-5357-4205-8c17-48d344ac41c2.png",
   },
   {
-    id: 40,
-    title: "",
-    category: "makeup",
-    image: "/lovable-uploads/0acfaa04-71c0-4caf-aad1-7ccead86820b.png",
-  },
-  {
     id: 41,
     title: "",
     category: "makeup",
