@@ -2,10 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
+
 const categories = [{
   id: 1,
   title: "שמלות כלה",
-  image: "/lovable-uploads/b862dc05-992a-4c9d-b0fc-e37626143d85.png",
+  image: "/lovable-uploads/02ce5f4a-a05a-45b3-afa5-1286f41e78c8.png",
   link: "/gallery?category=wedding-dresses"
 }, {
   id: 2,
@@ -33,8 +34,10 @@ const categories = [{
   image: "/images/purim.webp",
   link: "/gallery?category=costumes"
 }];
+
 const GalleryPreview = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  
   return <section ref={sectionRef} id="gallery-section" className="py-20 md:py-28 bg-gradient-to-b from-white via-[#fdf7f3] to-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -70,4 +73,5 @@ const GalleryPreview = () => {
       </div>
     </section>;
 };
+
 export default GalleryPreview;
