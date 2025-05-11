@@ -30,7 +30,7 @@ const GalleryGrid = ({ items, onImageClick }: GalleryGridProps) => {
                 onClick={() => onImageClick(item.image)}
               >
                 <AspectRatio ratio={3/4} className="bg-gray-100">
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 z-10"></div>
+                  {/* Removed the black overlay div that was here */}
                   <img 
                     src={item.image} 
                     alt={item.category} 
