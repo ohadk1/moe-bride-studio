@@ -7,43 +7,123 @@ export const categories = [
 ];
 
 export const galleryItems = [
-  // Wedding dress items (replaced with new photos)
+  // Wedding dress items (new uploaded photos)
   {
-    id: 9,
+    id: 201,
     title: "",
     category: "wedding-dresses",
-    image: "/lovable-uploads/02ce5f4a-a05a-45b3-afa5-1286f41e78c8.png",
+    image: "/lovable-uploads/94c6dcd2-7ab9-4e02-a414-4ace5a412d22.png",
   },
   {
-    id: 11,
+    id: 202,
     title: "",
     category: "wedding-dresses",
-    image: "/lovable-uploads/519e4fa2-870c-4f64-be80-9b2c54de44ff.png",
+    image: "/lovable-uploads/19a1da9d-a433-49a2-9b8b-3ac4d93c2dc5.png",
   },
   {
-    id: 12,
+    id: 203,
     title: "",
     category: "wedding-dresses",
-    image: "/lovable-uploads/811628e4-ea19-43c8-b874-069709f28cf9.png",
+    image: "/lovable-uploads/ade9c448-6774-41da-809c-3b90e5143eb4.png",
   },
   {
-    id: 13,
+    id: 204,
     title: "",
     category: "wedding-dresses",
-    image: "/lovable-uploads/09cdae5a-d97b-49ec-b209-ca7492c0eaa8.png",
+    image: "/lovable-uploads/03a1a87d-d91b-45fb-a4af-eb26515ec6fd.png",
   },
   {
-    id: 14,
+    id: 205,
     title: "",
     category: "wedding-dresses",
-    image: "/lovable-uploads/60a5da7e-2ee3-4f7d-a5ef-4248ec09d008.png",
+    image: "/lovable-uploads/677df1e4-8789-4dc5-aa44-bc7522245de6.png",
   },
   {
-    id: 15,
+    id: 206,
     title: "",
     category: "wedding-dresses",
-    image: "/lovable-uploads/8b44507b-91da-4c16-9bfb-0bbe70470c22.png",
+    image: "/lovable-uploads/618b612f-7066-40e9-bfac-c03751f7eeca.png",
   },
+  {
+    id: 207,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/b74d4f0d-626b-4e84-b092-c487703af5ab.png",
+  },
+  {
+    id: 208,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/451a81d3-30ee-462e-a27a-7adbe8702cbc.png",
+  },
+  {
+    id: 209,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/4b454c27-5492-48da-8ca6-42bc2beb0829.png",
+  },
+  {
+    id: 210,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/a5153fa4-ef35-451e-87cb-cfb14edde654.png",
+  },
+  {
+    id: 211,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/d3abb250-bfb6-4352-93d7-d66e9bb76a84.png",
+  },
+  {
+    id: 212,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/c94af1a6-7ee7-4008-a3f9-9b2ca2e6eabe.png",
+  },
+  {
+    id: 213,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/8c99a29b-39af-40e1-88f4-c65447f1455d.png",
+  },
+  {
+    id: 214,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/66481507-45e4-4ef5-9905-454493a8fac6.png",
+  },
+  {
+    id: 215,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/58c20f97-b2a0-4f84-ab64-a53e9b2b3f02.png",
+  },
+  {
+    id: 216,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/007c05b9-69c9-4056-b36e-85201cad84e1.png",
+  },
+  {
+    id: 217,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/793f111a-2733-4548-a983-90df601f2c6a.png",
+  },
+  {
+    id: 218,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/c174de6d-ae0a-4adb-b454-6dd987df4796.png",
+  },
+  {
+    id: 219,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/c7f1c61c-b8ed-4c48-a7d2-c457bd2a1faf.png",
+  },
+  
+  // Evening dress items
   {
     id: 100,
     title: "",
@@ -122,6 +202,8 @@ export const galleryItems = [
     category: "evening-dresses",
     image: "/lovable-uploads/414e177e-c251-48a2-bca2-0bd00a740d0a.png",
   },
+  
+  // Hairstyles and costumes
   {
     id: 5,
     title: "",
@@ -146,6 +228,8 @@ export const galleryItems = [
     category: "costumes",
     image: "https://images.unsplash.com/photo-1571775300229-7e84bff45eae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   },
+  
+  // Makeup items
   {
     id: 30,
     title: "",
