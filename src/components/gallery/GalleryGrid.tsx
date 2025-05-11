@@ -33,14 +33,11 @@ const GalleryGrid = ({ items, onImageClick }: GalleryGridProps) => {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 z-10"></div>
                   <img 
                     src={item.image} 
-                    alt={item.title} 
+                    alt={item.category} 
                     className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                 </AspectRatio>
-                <div className="absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                  <h3 className="text-white font-medium">{item.title}</h3>
-                </div>
               </div>
             </div>
           ))}

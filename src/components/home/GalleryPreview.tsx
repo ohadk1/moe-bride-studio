@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
@@ -9,13 +10,12 @@ const categories = [{
 }, {
   id: 2,
   title: "שמלות ערב",
-  image: "https://images.unsplash.com/photo-1585241936939-be4099591252?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+  image: "/lovable-uploads/7bca0f52-70d2-4003-8603-66236b98818a.png",
   link: "/gallery?category=evening-dresses"
 }, {
   id: 3,
   title: "איפור כלה",
-  // Replaced ipur.webp with a placeholder image
-  image: "https://images.unsplash.com/photo-1560701943-9d8e7b47a86b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+  image: "/lovable-uploads/d9cad4a2-6d34-4c74-a64d-5e6ed12cb2cf.png",
   link: "/gallery?category=makeup"
 }, {
   id: 4,
@@ -25,7 +25,7 @@ const categories = [{
 }, {
   id: 5,
   title: "איפור ערב",
-  image: "https://images.unsplash.com/photo-1571646034647-52e4dfa9d6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+  image: "/lovable-uploads/40c87bce-0e79-4f88-a52f-88c0bef358fe.png",
   link: "/gallery?category=evening-makeup"
 }, {
   id: 6,
