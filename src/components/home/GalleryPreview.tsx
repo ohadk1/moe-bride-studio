@@ -14,20 +14,15 @@ const categories = [{
   image: "/lovable-uploads/c949ffb8-9ab4-4de3-bbb5-5f473d254d18.png", 
   link: "/gallery?category=evening-dresses"
 }, {
-  id: 3,
-  title: "איפור כלה",
-  image: "/lovable-uploads/d9cad4a2-6d34-4c74-a64d-5e6ed12cb2cf.png",
-  link: "/gallery?category=makeup"
-}, {
   id: 4,
   title: "תסרוקות",
   image: "/images/tisrokot.webp",
   link: "/gallery?category=hairstyles"
 }, {
   id: 5,
-  title: "איפור ערב",
+  title: "איפור",
   image: "/lovable-uploads/40c87bce-0e79-4f88-a52f-88c0bef358fe.png",
-  link: "/gallery?category=evening-makeup"
+  link: "/gallery?category=makeup"
 }, {
   id: 6,
   title: "תחפושות לפורים",
