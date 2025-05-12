@@ -6,7 +6,7 @@ import { useRef } from "react";
 const categories = [{
   id: 1,
   title: "שמלות כלה",
-  image: "/lovable-uploads/94c6dcd2-7ab9-4e02-a414-4ace5a412d22.png",
+  image: "/lovable-uploads/1c377703-a495-4717-b73e-58ef86f9692d.png",
   link: "/gallery?category=wedding-dresses"
 }, {
   id: 2,

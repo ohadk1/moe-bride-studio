@@ -7,7 +7,50 @@ export const categories = [
 ];
 
 export const galleryItems = [
-  // Wedding dress items (new uploaded photos)
+  // Wedding dress items - new uploaded photos
+  {
+    id: 301,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/1c377703-a495-4717-b73e-58ef86f9692d.png",
+  },
+  {
+    id: 302,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/4d6e310b-7a76-4cd3-ba73-d4d32bb94137.png",
+  },
+  {
+    id: 303,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/ca449e89-100d-43fa-8e3b-87c46ee6dbec.png",
+  },
+  {
+    id: 304,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/ee0bf786-0120-42bd-b9e8-851023369fe3.png",
+  },
+  {
+    id: 305,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/bd5b22ad-30ac-4847-9bfc-ae125d32e1bb.png",
+  },
+  {
+    id: 306,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/89adfb0f-dc85-436c-a1ee-8ac83eefcaa1.png",
+  },
+  {
+    id: 307,
+    title: "",
+    category: "wedding-dresses",
+    image: "/lovable-uploads/521f9d59-a9d9-4e97-80cc-b448199c07ae.png",
+  },
+  // Adding previous wedding dress images
   {
     id: 201,
     title: "",
