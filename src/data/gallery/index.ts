@@ -4,8 +4,7 @@ import { weddingDressItems } from "./weddingDresses";
 import { eveningDressItems } from "./eveningDresses";
 import { makeupItems } from "./makeup";
 import { hairstyleItems, purimItems } from "./other";
-import type { GalleryItem } from "./types";
-import type { GalleryCategory } from "./categories";
+import type { GalleryItem, GalleryCategory } from "./types";
 
 // Combine all gallery items
 const galleryItems: GalleryItem[] = [

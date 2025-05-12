@@ -5,3 +5,9 @@ export interface GalleryItem {
   category: string;
   image: string;
 }
+
+export interface GalleryCategory {
+  id: string;
+  name: string;
+  icon: string;
+}
