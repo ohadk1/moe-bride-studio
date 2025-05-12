@@ -70,17 +70,125 @@ export const hairstyleItems: GalleryItem[] = [
   },
 ];
 
-export const costumeItems: GalleryItem[] = [
+export const purimItems: GalleryItem[] = [
   {
-    id: 7,
+    id: 201,
     title: "",
-    category: "costumes",
-    image: "https://images.unsplash.com/photo-1523215713844-b8e594de9429?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    category: "purim",
+    image: "/lovable-uploads/22224c07-df1a-460f-8f4d-21f19ec205c5.png",
   },
   {
-    id: 8,
+    id: 202,
     title: "",
-    category: "costumes",
-    image: "https://images.unsplash.com/photo-1571775300229-7e84bff45eae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    category: "purim",
+    image: "/lovable-uploads/7d41420e-0f94-405a-90ad-68a6b4ffb0cd.png",
+  },
+  {
+    id: 203,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/816de9db-9e76-436e-88c6-2d43558ed2f9.png",
+  },
+  {
+    id: 204,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/a42d38ff-1695-4907-92cc-c45ae25ea889.png",
+  },
+  {
+    id: 205,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/65ad3b4f-5e49-45aa-8b70-1cbd7d3f323b.png",
+  },
+  {
+    id: 206,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/ac084fa1-db5e-4071-af76-1a1d4a3f65db.png",
+  },
+  {
+    id: 207,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/74244983-7a88-43f1-afbf-8e306c2a120e.png",
+  },
+  {
+    id: 208,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/b8c6a3b0-e97d-4af4-be47-c82f9eeb32cc.png",
+  },
+  {
+    id: 209,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/c7cb023b-4b92-4c88-865b-d8c340cd4e8c.png",
+  },
+  {
+    id: 210,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/a347d676-d3fe-4ea3-8442-9000b53aa95b.png",
+  },
+  {
+    id: 211,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/61fd2e2a-3303-4328-ba1b-006093da207b.png",
+  },
+  {
+    id: 212,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/0321c570-434b-4e8d-97bb-720270e88cc0.png",
+  },
+  {
+    id: 213,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/d5dbd6e6-0108-4cca-b72a-f52d669dbd8e.png",
+  },
+  {
+    id: 214,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/f371cda7-2b06-4361-9b9a-b30c3d201606.png",
+  },
+  {
+    id: 215,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/c6a20282-e4a9-462b-9791-7b21dccdef42.png",
+  },
+  {
+    id: 216,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/621e35be-1a3e-4de2-adc9-3905d77bed4d.png",
+  },
+  {
+    id: 217,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/785d66bd-91ce-4798-917b-a2088660b238.png",
+  },
+  {
+    id: 218,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/72c95600-d66b-4342-a217-2edff0acad9e.png",
+  },
+  {
+    id: 219,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/43076e70-373f-4533-a0b3-97895b913cd9.png",
+  },
+  {
+    id: 220,
+    title: "",
+    category: "purim",
+    image: "/lovable-uploads/2fdbab08-19fb-4617-9f8e-13fd63d96aae.png",
   },
 ];

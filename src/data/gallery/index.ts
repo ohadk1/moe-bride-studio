@@ -3,7 +3,7 @@ import { categories } from "./categories";
 import { weddingDressItems } from "./weddingDresses";
 import { eveningDressItems } from "./eveningDresses";
 import { makeupItems } from "./makeup";
-import { hairstyleItems, costumeItems } from "./other";
+import { hairstyleItems, purimItems } from "./other";
 import type { GalleryItem } from "./types";
 import type { GalleryCategory } from "./categories";
 
@@ -13,7 +13,7 @@ const galleryItems: GalleryItem[] = [
   ...eveningDressItems,
   ...makeupItems,
   ...hairstyleItems,
-  ...costumeItems,
+  ...purimItems,
 ];
 
 export { 
@@ -23,7 +23,7 @@ export {
   eveningDressItems,
   makeupItems,
   hairstyleItems,
-  costumeItems
+  purimItems
 };
 
 export type { GalleryItem, GalleryCategory };
