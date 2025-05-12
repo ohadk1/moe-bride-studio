@@ -159,13 +159,7 @@ export const galleryItems = [
     category: "wedding-dresses",
     image: "/lovable-uploads/c174de6d-ae0a-4adb-b454-6dd987df4796.png",
   },
-  {
-    id: 219,
-    title: "",
-    category: "wedding-dresses",
-    image: "/lovable-uploads/c7f1c61c-b8ed-4c48-a7d2-c457bd2a1faf.png",
-  },
-  
+
   // Evening dress items
   {
     id: 100,
