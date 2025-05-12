@@ -11,7 +11,7 @@ const categories = [{
 }, {
   id: 2,
   title: "שמלות ערב",
-  image: "/lovable-uploads/c949ffb8-9ab4-4de3-bbb5-5f473d254d18.png", // Updated to use one of the new red dress images
+  image: "/lovable-uploads/c949ffb8-9ab4-4de3-bbb5-5f473d254d18.png", 
   link: "/gallery?category=evening-dresses"
 }, {
   id: 3,

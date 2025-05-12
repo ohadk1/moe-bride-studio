@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
@@ -5,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import CategoryFilter from "@/components/gallery/CategoryFilter";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
 import ImageLightbox from "@/components/gallery/ImageLightbox";
-import { categories, galleryItems } from "@/data/galleryData";
+import { categories, galleryItems } from "@/data/gallery";
 import { toast } from "@/components/ui/use-toast";
 import { useIsMobile } from "@/hooks/use-mobile";
 
