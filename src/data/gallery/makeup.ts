@@ -57,18 +57,6 @@ export const makeupItems: GalleryItem[] = [
     image: "/lovable-uploads/e05dfc74-64fe-4906-9950-b5de9d2796ed.png",
   },
   {
-    id: 310,
-    title: "",
-    category: "makeup",
-    image: "/lovable-uploads/b2d89af8-a848-4b5a-ad65-fe9610c2c285.png",
-  },
-  {
-    id: 311,
-    title: "",
-    category: "makeup",
-    image: "/lovable-uploads/f0a56381-6dbc-4261-b10e-ba06eeb50851.png",
-  },
-  {
     id: 312,
     title: "",
     category: "makeup",
